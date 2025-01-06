@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор страхування авто</title>
+    <link rel="stylesheet" href="./InteractiveAutoInsuranceCalculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Калькулятор страхування авто</h1>
+                <p class="card-description">Введіть дані для розрахунку вартості страхування</p>
+            </div>
+            <div class="card-content">
+                <div class="input-group">
+                    <label for="carValue">Вартість автомобіля (грн)</label>
+                    <input id="carValue" type="number" value="10000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="driverAge">Вік водія</label>
+                    <input id="driverAge" type="number" value="30">
+                </div>
+                
+                <div class="input-group">
+                    <label for="drivingExperience">Досвід водіння (років)</label>
+                    <input id="drivingExperience" type="range" min="0" max="50" value="5">
+                    <div id="experienceValue" class="slider-value">5 років</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="carType">Тип автомобіля</label>
+                    <select id="carType">
+                        <option value="sedan">Седан</option>
+                        <option value="suv">Позашляховик</option>
+                        <option value="sports">Спортивний</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="accidentHistory">Кількість аварій за останні 3 роки</label>
+                    <input id="accidentHistory" type="number" value="0">
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="result-label">Вартість страхування:</div>
+                <div id="insuranceResult" class="result-value">0 грн</div>
+            </div>
+        </div>
+    </div>
+    <script src="./InteractiveAutoInsuranceCalculator.js"></script>
+</body>
+</html>

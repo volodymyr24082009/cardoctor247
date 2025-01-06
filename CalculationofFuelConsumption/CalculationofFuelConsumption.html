@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор витрат палива</title>
+    <link rel="stylesheet" href="./CalculationofFuelConsumption.css">
+</head>
+<body>
+   
+    <div class="container">
+        <div class="calculator">
+            <h2>Калькулятор витрат палива</h2>
+            <div class="input-group">
+                <label for="distance">Відстань (км)</label>
+                <input type="number" id="distance" placeholder="Введіть відстань">
+            </div>
+            <div class="input-group">
+                <label for="price">Ціна палива (за літр)</label>
+                <input type="number" id="price" placeholder="Введіть ціну палива">
+            </div>
+            <div class="input-group">
+                <label for="consumption">Споживання (л/100км)</label>
+                <input type="number" id="consumption" placeholder="Введіть споживання">
+            </div>
+            <button id="calculate">Розрахувати</button>
+            <div id="result" class="hidden">
+                <p>Витрати на паливо: <span id="cost"></span> грн</p>
+            </div>
+        </div>
+    </div>
+    <script src="./CalculationofFuelConsumption.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профіль | Автолікар 24/7</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./ICON_AUTO.png">
+</head>
+<body>
+    <button id="home-button" class="btn-home">На головну</button>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img src="../no_avatar.webp" alt="Profile" id="profile-image">
+                <div class="avatar-overlay">
+                    <label for="avatar-upload" class="avatar-upload-label">
+                        <span>Змінити фото</span>
+                    </label>
+                    <input type="file" id="avatar-upload" accept="image/*" hidden>
+                </div>
+            </div>
+            <div class="profile-info">
+                <h1 id="profile-name">Завантаження...</h1>
+                <p id="profile-type" class="profile-type">Завантаження...</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="user-type-selection">
+                <label>
+                    <input type="radio" name="userType" value="user" checked> Користувач
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="master"> Майстер
+                </label>
+            </div>
+
+            <form id="profile-form" class="profile-form">
+                <div class="form-group">
+                    <label for="fullname">Повне ім'я</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group master-field">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group master-field">
+                    <label for="district">Район</label>
+                    <select id="district" name="district">
+                        <option value="korolyovsky">Корольовський</option>
+                        <option value="bogunsky">Богунський</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nickname">Нікнейм</label>
+                    <input type="text" id="nickname" name="nickname" required>
+                </div>
+
+                <div id="services-section" class="form-group services-section master-field">
+                    <label>Послуги</label>
+                    <div id="services-list" class="services-list">
+                        <!-- Services will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-save">Зберегти зміни</button>
+                    <button type="button" class="btn-cancel">Скасувати</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Volodymyr Chizhevskiy",
+    "email": "volodymur240809@gmail.com",
+    "phone": "0965383239",
+    "problem": "Пробна проблема з автомобілем",
+    "district": "Богунський",
+    "street": "4-й Каракульний провулок"
+  },
+  {
+    "name": "24g_chvv",
+    "email": "24g_chvv@liceum.ztu.edu.ua",
+    "phone": "+380965383239",
+    "problem": "Пробна проблема ",
+    "district": "Корольовський",
+    "street": "2-й Полевой провулок"
+  },
+  {
+    "name": "Вова",
+    "email": "volodymyr240809@gmail.com",
+    "phone": "+380965383239",
+    "problem": "Проблема з двигуном",
+    "district": "Богунський",
+    "street": "1-й Каракульний провулок"
+  },
+  {
+    "name": "Volodymyr Chizhevskiy",
+    "email": "volodymyr240809@gmail.com",
+    "phone": "0965383239",
+    "problem": "Пробна проблема 2",
+    "district": "Богунський",
+    "street": "2-й Кривой провулок"
+  },
+  {
+    "name": "Щодо повернення поилково сплачених коштів",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "+38 096 538 32 39",
+    "problem": "Заміна масла в двигуні",
+    "district": "Богунський",
+    "street": "2-й Сенный провулок"
+  },
+  {
+    "name": "Володимир",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "0965383239",
+    "problem": "Перевірка та заміна гальмівних колодок",
+    "district": "Богунський",
+    "street": "4-й Каракульний провулок"
+  },
+  {
+    "name": "Володимир",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "0965383239",
+    "problem": "Перевірка та заміна гальмівних колодок",
+    "district": "Богунський",
+    "street": "4-й Каракульний провулок"
+  },
+  {
+    "name": "Катерина",
+    "email": "b-kate@ukr.net",
+    "phone": "0977484850",
+    "problem": "Перевірка та заміна гальмівних колодок",
+    "district": "Богунський",
+    "street": "Гетмана Самойловича вулиця"
+  },
+  {
+    "name": "Катерина",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "252",
+    "problem": "Покраска автомобіля",
+    "district": "Корольовський",
+    "street": "2-й Житний провулок"
+  },
+  {
+    "name": "Катерина",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "252",
+    "problem": "Покраска автомобіля",
+    "district": "Корольовський",
+    "street": "2-й Житний провулок"
+  },
+  {
+    "name": "Вова",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "0965383239",
+    "problem": "Заміна ременя",
+    "district": "Богунський",
+    "street": "4-й Вільський провулок"
+  },
+  {
+    "name": "24g_chvv",
+    "email": "vovavlog0080@gmail.com",
+    "phone": "+380965383239",
+    "problem": "Ремонт вихлопної системи",
+    "district": "Корольовський",
+    "street": "2-й Льва Толстого провулок"
+  },
+  {
+    "name": "Володимир",
+    "email": "fv44vfvf@gmail.com",
+    "phone": "0965383239",
+    "problem": "Ремонт трансмісії",
+    "district": "Богунський",
+    "street": "4-й Каракульний провулок"
+  },
+  {
+    "name": "Volodymyr Chizhevskiy",
+    "email": "volodymur240809@gmail.com",
+    "phone": "0965383239",
+    "problem": "Ремонт підшипників",
+    "district": "Богунський",
+    "street": "2-й Чудновский провулок"
+  },
+  {
+    "name": "Володимир",
+    "email": "24g_chvv@liceum.ztu.edu.ua",
+    "phone": "0965383239",
+    "problem": "Ремонт підшипників",
+    "district": "Богунський",
+    "street": "2-й Руднянский провулок"
+  }
+]

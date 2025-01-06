@@ -1,0 +1,88 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1a2e; /* Теплий темно-синій фон */
+    font-family: 'Georgia', serif; /* Вибір класичного шрифта для українського стилю */
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    color: #F1C40F; /* Золотистий колір для тексту, що асоціюється з українським орнаментом */
+    background-color: rgba(255, 255, 255, 0.1); /* Легкий білий напівпрозорий фон */
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+h1 {
+    color: #F1C40F; /* Золотистий */
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+}
+
+.button {
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #F1C40F; /* Золотистий */
+    border: 2px solid #F39C12;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+    font-family: 'Georgia', serif;
+}
+
+.button:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 30px rgba(241, 196, 15, 0.7);
+    background-color: #F39C12; /* Трохи темніший відтінок золотого */
+}
+
+.button:active {
+    transform: scale(0.95) translateY(3px);
+    box-shadow: 0 5px 10px rgba(241, 196, 15, 0.7);
+    background-color: #F1C40F;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 0.6; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes backgroundPulse {
+    0% { background: #1a1a2e; }
+    50% { background: #0f2347; }
+    100% { background: #1a1a2e; }
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://example.com/stars.png') repeat center center;
+    opacity: 0.1;
+    animation: starsAnimation 10s linear infinite;
+}
+
+@keyframes starsAnimation {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.1; }
+}

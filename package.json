@@ -1,0 +1,36 @@
+{
+  "name": "cardoctor24.7",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "type": "commonjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cardoctor24.7": "file:",
+    "chart.js": "^4.4.7",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "geoip-lite": "^1.4.10",
+    "googleapis": "^144.0.0",
+    "heatmap.js": "^2.0.5",
+    "mongoose": "^8.9.3",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.12.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemailer": "^6.9.16",
+    "openai": "^4.77.3",
+    "sequelize": "^6.37.5",
+    "telegraf": "^4.16.3"
+  },
+  "description": ""
+}

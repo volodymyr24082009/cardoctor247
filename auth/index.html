@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ukraine">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Реєстрація</title>
+    <link rel="stylesheet" href="/auth/styles.css" />
+    <link rel="icon" type="image/x-icon" href="./ICON_AUTO.png" />
+  </head>
+  <body>
+    <div class="container" id="mainContainer">
+      <h2>Реєстрація</h2>
+
+      <button id="chooseMaster">Майстер</button>
+      <button id="chooseUser">Користувач</button>
+    </div>
+
+    <div id="masterModal" class="modal">
+      <div class="modal-content">
+        <h6>Реєстрація майстра</h6>
+        <form id="masterForm">
+          <label for="masterFullname">ПІБ:</label>
+          <input type="text" id="masterFullname" name="fullname" required />
+
+          <label for="masterPhone">Номер телефону:</label>
+          <input type="tel" id="masterPhone" name="phone" required />
+
+          <label for="masterDistrict">Район Житомира:</label>
+          <select id="masterDistrict" name="district" required>
+            <option value="" disabled selected>Оберіть район</option>
+            <option value="bogunsky">Богунський</option>
+            <option value="korolyovsky">Корольовський</option>
+          </select>
+
+          <label for="masterEmail">Електронна пошта:</label>
+          <input type="email" id="masterEmail" name="email" required />
+
+          <label for="masterPassword">Пароль:</label>
+          <input type="password" id="masterPassword" name="password" required />
+
+          <label for="masterNickname">Нікнейм:</label>
+          <input type="text" id="masterNickname" name="nickname" required />
+
+          <h4>Послуги, які ви можете надавати:</h4>
+          <div id="servicesContainer">
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Діагностика двигуна"
+                id="Діагностика двигуна"
+              />
+              <i class="fa fa-car"></i>
+              <span>Діагностика двигуна</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт трансмісії"
+                id="Ремонт трансмісії"
+              />
+              <i class="fa fa-cogs"></i>
+              <span>Ремонт трансмісії</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Заміна гальмівних дисків"
+                id="Заміна гальмівних дисків"
+              />
+              <i class="fa fa-bolt"></i>
+              <span>Заміна гальмівних дисків</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт кондиціонера"
+                id="Ремонт кондиціонера"
+              />
+              <i class="fa fa-oil-can"></i>
+              <span>Ремонт кондиціонера</span>
+            </label>
+            <label class="service-item">
+              <input type="checkbox" name="Заміна масла" id="Заміна масла" />
+              <i class="fa fa-car-crash"></i>
+              <span>Заміна масла</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт підвіски"
+                id="Ремонт підвіски"
+              />
+              <i class="fa fa-car"></i>
+              <span>Ремонт підвіски</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Заміна свічок запалювання"
+                id="Заміна свічок запалювання"
+              />
+              <i class="fa fa-cogs"></i>
+              <span>Заміна свічок запалювання</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Покраска автомобіля"
+                id="Покраска автомобіля"
+              />
+              <i class="fa fa-bolt"></i>
+              <span>Покраска автомобіля</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт електричних систем"
+                id="Ремонт електричних систем"
+              />
+              <i class="fa fa-oil-can"></i>
+              <span>Ремонт електричних систем</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Охолодження двигуна"
+                id="Охолодження двигуна"
+              />
+              <i class="fa fa-car-crash"></i>
+              <span>Охолодження двигуна</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Заміна фільтру"
+                id="Заміна фільтру"
+              />
+              <i class="fa fa-car"></i>
+              <span>Заміна фільтру</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт стартера"
+                id="Ремонт стартера"
+              />
+              <i class="fa fa-cogs"></i>
+              <span>Ремонт стартера</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт електродвигуна"
+                id="Ремонт електродвигуна"
+              />
+              <i class="fa fa-bolt"></i>
+              <span>Ремонт електродвигуна</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Перевірка системи живлення"
+                id="Перевірка системи живлення"
+              />
+              <i class="fa fa-oil-can"></i>
+              <span>Перевірка системи живлення</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Проблеми з акумулятором"
+                id="Проблеми з акумулятором"
+              />
+              <i class="fa fa-car-crash"></i>
+              <span>Проблеми з акумулятором</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт вихлопної системи"
+                id="Ремонт вихлопної системи"
+              />
+              <i class="fa fa-car"></i>
+              <span>Ремонт вихлопної системи</span>
+            </label>
+            <label class="service-item">
+              <input type="checkbox" name="Заміна ременя" id="Заміна ременя" />
+              <i class="fa fa-cogs"></i>
+              <span>Заміна ременя</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Перевірка системи охолодження"
+                id="Перевірка системи охолодження"
+              />
+              <i class="fa fa-bolt"></i>
+              <span>Перевірка системи охолодження</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт підшипників"
+                id="Ремонт підшипників"
+              />
+              <i class="fa fa-oil-can"></i>
+              <span>Ремонт підшипників</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт системи підйому"
+                id="Ремонт системи підйому"
+              />
+              <i class="fa fa-car-crash"></i>
+              <span>Ремонт системи підйому</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт рульового управління"
+                id="Ремонт рульового управління"
+              />
+              <i class="fa fa-car"></i>
+              <span>Ремонт рульового управління</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Заміна гальмівної рідини"
+                id="Заміна гальмівної рідини"
+              />
+              <i class="fa fa-cogs"></i>
+              <span>Заміна гальмівної рідини</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт паливної системи"
+                id="Ремонт паливної системи"
+              />
+              <i class="fa fa-bolt"></i>
+              <span>Ремонт паливної системи</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Заміна амортизаторів"
+                id="Заміна амортизаторів"
+              />
+              <i class="fa fa-oil-can"></i>
+              <span>Заміна амортизаторів</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт системи запалювання"
+                id="Ремонт системи запалювання"
+              />
+              <i class="fa fa-car-crash"></i>
+              <span>Ремонт системи запалювання</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Проблеми з трансмісією"
+                id="Проблеми з трансмісією"
+              />
+              <i class="fa fa-car"></i>
+              <span>Проблеми з трансмісією</span>
+            </label>
+            <label class="service-item">
+              <input type="checkbox" name="Ремонт кузова" id="Ремонт кузова" />
+              <i class="fa fa-cogs"></i>
+              <span>Ремонт кузова</span>
+            </label>
+            <label class="service-item">
+              <input type="checkbox" name="Ремонт фар" id="Ремонт фар" />
+              <i class="fa fa-bolt"></i>
+              <span>Ремонт фар</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Заміна гальмівних колодок"
+                id="Заміна гальмівних колодок"
+              />
+              <i class="fa fa-oil-can"></i>
+              <span>Заміна гальмівних колодок</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт двигуна"
+                id="Ремонт двигуна"
+              />
+              <i class="fa fa-car-crash"></i>
+              <span>Ремонт двигуна</span>
+            </label>
+            <label class="service-item">
+              <input
+                type="checkbox"
+                name="Ремонт системи випуску газів"
+                id="Ремонт системи випуску газів"
+              />
+              <i class="fa fa-wrench"></i>
+              <span>Ремонт системи випуску газів</span>
+            </label>
+          </div>
+
+          <button type="submit">Зареєструватися</button>
+        </form>
+      </div>
+      
+    </div>
+
+    <div id="userModal" class="modal">
+      <div class="modal-content">
+        <h6>Реєстрація користувача</h6>
+        <form id="userForm">
+          <label for="userFullname">ПІБ:</label>
+          <input type="text" id="userFullname" name="fullname" required />
+
+          <label for="userPhone">Номер телефону:</label>
+          <input type="tel" id="userPhone" name="phone" required />
+
+          <label for="userDistrict">Район Житомира:</label>
+          <select id="userDistrict" name="district" required>
+            <option value="" disabled selected>Оберіть район</option>
+            <option value="bogunsky">Богунський</option>
+            <option value="korolyovsky">Корольовський</option>
+          </select>
+
+          <label for="userEmail">Електронна пошта:</label>
+          <input type="email" id="userEmail" name="email" required />
+
+          <label for="userPassword">Пароль:</label>
+          <input type="password" id="userPassword" name="password" required />
+
+          <label for="userNickname">Нікнейм:</label>
+          <input type="text" id="userNickname" name="nickname" required />
+
+          <button type="submit">Зареєструватися</button>
+        </form>
+      </div>
+      <!-- New login modal -->
+    
+    </div>
+
+    <script src="/auth/script.js"></script>
+  </body>
+</html>

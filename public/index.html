@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Автолікар 24/7 - Ваш надійний помічник на дорозі</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <html lang="uk">
+
+    <link rel="icon" type="image/x-icon" href="./ICON_AUTO.png" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <i class="fas fa-car-crash"></i>
+          <span>Автолікар 24/7</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Головна</a></li>
+          <li><a href="#services" class="nav-link">Послуги</a></li>
+          <li><a href="#masters-section" class="nav-link">Майстри</a></li>
+          <li>
+            <a href="../profile/profile.html" class="nav-link">Профіль</a>
+          </li>
+          <li>
+            <a href="../admin/admin.html" class="nav-link">АдмінПанель</a>
+          </li>
+                    <li><a href="../CalculationofFuelConsumption/CalculationofFuelConsumption.html" class="nav-link">Розрахунок Витрат Палива</a></li>
+                    <li><a href="../InteractiveAutoInsuranceCalculator/InteractiveAutoInsuranceCalculator.html" class="nav-link">Інтерактивний Калькулятор Страхування Авто</a></li>
+                    
+        </ul>
+        <div class="working-hours">
+          <p>Робочі години:</p>
+          <p>20:00 - 24:00 та 5:00 - 8:00 - виїзд на місце</p>
+          <p>Інший час - консультації по телефону</p>
+        </div>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h1 class="glitch" data-text="Ваш надійний помічник на дорозі">
+            Ваш надійний помічник на дорозі
+          </h1>
+          <p class="subtitle">
+            Цілодобова підтримка для вашого автомобіля в Житомирі
+          </p>
+          <a href="#contact" class="btn btn-cta">Залишити заявку</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://cdn.pixabay.com/photo/2023/10/27/11/59/ai-generated-8345202_1280.jpg"
+            alt="Автомеханік за роботою"
+          />
+        </div>
+      </section>
+
+      <section id="services" class="services">
+        <h2 class="section-title">Наші послуги</h2>
+        <div class="services-grid" id="services-list"></div>
+      </section>
+
+      <!-- Заголовок блоку "Наші майстри" -->
+      <div id="masters-section">
+        <h2>Наші Майстри</h2>
+        <div id="masters-container">
+          <!-- Тут будуть відображатись майстри -->
+        </div>
+      </div>
+
+      <section id="contact" class="contact">
+        <h2 class="section-title">Залишити заявку</h2>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" id="name" required />
+            <label for="name">Ваше ім'я</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="email" required />
+            <label for="email">Ваш email</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" id="phone" required />
+            <label for="phone">Ваш телефон</label>
+          </div>
+
+          <div class="form-group">
+            <select name="problem" id="problem" required class="styled-select">
+              <option value="">Виберіть проблему</option>
+              <option value="Діагностика двигуна">Діагностика двигуна</option>
+              <option value="Ремонт трансмісії">Ремонт трансмісії</option>
+              <option value="Заміна гальмівних дисків">
+                Заміна гальмівних дисків
+              </option>
+              <option value="Ремонт кондиціонера">Ремонт кондиціонера</option>
+              <option value="Заміна масла">Заміна масла</option>
+              <option value="Ремонт підвіски">Ремонт підвіски</option>
+              <option value="Заміна свічок запалювання">
+                Заміна свічок запалювання
+              </option>
+              <option value="Покраска автомобіля">Покраска автомобіля</option>
+              <option value="Ремонт електричних систем">
+                Ремонт електричних систем
+              </option>
+              <option value="Охолодження двигуна">Охолодження двигуна</option>
+              <option value="Заміна фільтру">Заміна фільтру</option>
+              <option value="Ремонт стартера">Ремонт стартера</option>
+              <option value="Ремонт електродвигуна">
+                Ремонт електродвигуна
+              </option>
+              <option value="Перевірка системи живлення">
+                Перевірка системи живлення
+              </option>
+              <option value="Проблеми з акумулятором">
+                Проблеми з акумулятором
+              </option>
+              <option value="Ремонт вихлопної системи">
+                Ремонт вихлопної системи
+              </option>
+              <option value="Заміна ременя">Заміна ременя</option>
+              <option value="Перевірка системи охолодження">
+                Перевірка системи охолодження
+              </option>
+              <option value="Ремонт підшипників">Ремонт підшипників</option>
+              <option value="Ремонт системи підйому">
+                Ремонт системи підйому
+              </option>
+              <option value="Ремонт рульового управління">
+                Ремонт рульового управління
+              </option>
+              <option value="Заміна гальмівної рідини">
+                Заміна гальмівної рідини
+              </option>
+              <option value="Ремонт паливної системи">
+                Ремонт паливної системи
+              </option>
+              <option value="Заміна амортизаторів">Заміна амортизаторів</option>
+              <option value="Ремонт системи запалювання">
+                Ремонт системи запалювання
+              </option>
+              <option value="Проблеми з трансмісією">
+                Проблеми з трансмісією
+              </option>
+              <option value="Ремонт кузова">Ремонт кузова</option>
+              <option value="Ремонт фар">Ремонт фар</option>
+              <option value="Заміна гальмівних колодок">
+                Заміна гальмівних колодок
+              </option>
+              <option value="Ремонт двигуна">Ремонт двигуна</option>
+              <option value="Ремонт системи випуску газів">
+                Ремонт системи випуску газів
+              </option>
+            </select>
+          </div>
+
+          <div class="form-container">
+            <div class="form-group">
+              <select name="district" id="district" class="styled-select">
+                <option value="">Виберіть район</option>
+                <option value="Богунський">Богунський</option>
+                <option value="Корольовський">Корольовський</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select name="street" id="street" class="styled-select">
+                <option value="">Спочатку оберіть район</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Модальне вікно -->
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p id="modal-message">Ви обрали:</p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-submit">Відправити</button>
+        </form>
+      </section>
+
+      <section id="masters-stats" class="masters-stats">
+        <h2 class="section-title">Статистика майстрів</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>Кількість оброблених заявок</h3>
+            <p id="requests-count">120</p>
+          </div>
+          <div class="stat-item">
+            <h3>Середній час обробки</h3>
+            <p id="avg-response-time">30 хвилин</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кількість позитивних відгуків</h3>
+            <p id="positive-reviews">98%</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="profile-page" class="profile-page" style="display: none">
+        <div class="profile-content">
+          <h2>Мій профіль</h2>
+          <p><strong>Ім'я:</strong> <span id="user-name">Іван Іванов</span></p>
+          <p>
+            <strong>Email:</strong>
+            <span id="user-email"
+              ><a
+                href="/cdn-cgi/l/email-protection"
+                class="__cf_email__"
+                data-cfemail="036a75626d43667b626e736f662d606c6e"
+                >[email&#160;protected]</a
+              ></span
+            >
+          </p>
+          <p>
+            <strong>Телефон:</strong> <span id="user-phone">+380123456789</span>
+          </p>
+          <button id="edit-profile-btn" class="btn">Редагувати профіль</button>
+        </div>
+      </section>
+    </main>
+    <ul id="applicationList"></ul>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Про нас</h3>
+          <p>
+            Автолікар 24/7 - ваш надійний партнер на дорозі. Ми надаємо якісні
+            послуги з ремонту та обслуговування автомобілів цілодобово.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Контакти</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> вул. Автомобільна, 1, Житомир
+          </p>
+          <p><i class="fas fa-phone"></i> +380 123 456 789</p>
+        </div>
+        <div class="footer-section">
+          <h3>Слідкуйте за нами</h3>
+          <div class="social-icons"></div>
+        </div>
+      </div>
+
+      <canvas id="cursorMovementChart"></canvas>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Автолікар 24/7. Всі права захищені.</p>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,553 @@
+[
+  {
+    "id": "1735645338248",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodymy41444mr240809@gmail.com",
+    "password": "411",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "41",
+    "type": "master",
+    "services": [
+      "Ремонт електродвигуна",
+      "Перевірка системи живлення",
+      "Проблеми з акумулятором",
+      "Ремонт вихлопної системи",
+      "Заміна ременя",
+      "Перевірка системи охолодження",
+      "Ремонт підшипників"
+    ]
+  },
+  {
+    "id": "1735651257299",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volody42mymr240809@gmail.com",
+    "password": "411",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "411522",
+    "type": "master",
+    "services": [
+      "Заміна гальмівних дисків"
+    ]
+  },
+  {
+    "id": "1735666426105",
+    "fullname": "vfv",
+    "email": "fvfvv@gmail.com",
+    "password": "fv",
+    "phone": "vfvfv",
+    "district": "Корольовський(Житомир)",
+    "nickname": "vf",
+    "type": "master",
+    "services": [
+      "Ремонт підшипників"
+    ]
+  },
+  {
+    "id": "1735725058397",
+    "fullname": "ff",
+    "email": "vovavlog0080@gmail.com",
+    "password": "3",
+    "phone": "031",
+    "district": "Богунський(Житомир)",
+    "nickname": "3",
+    "type": "master",
+    "services": [
+      "Ремонт трансмісії",
+      "Ремонт фар"
+    ]
+  },
+  {
+    "id": "1735910615967",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodymymr240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "411522",
+    "type": "master",
+    "services": [
+      "Заміна масла",
+      "Ремонт підвіски"
+    ]
+  },
+  {
+    "id": "1735911891678",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodhhhymymr240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "jhm",
+    "type": "master",
+    "services": [
+      "Заміна ременя"
+    ]
+  },
+  {
+    "id": "1735912577448",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodymur240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "fv",
+    "type": "master",
+    "services": [
+      "Ремонт двигуна"
+    ]
+  },
+  {
+    "id": "1736014475067",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "24g_chvv@liceum.ztu.edu.ua",
+    "password": "цу",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "і",
+    "type": "master",
+    "services": [
+      "Ремонт паливної системи"
+    ]
+  },
+  {
+    "id": "1736017977461",
+    "fullname": "Чижевський Сергій Бутусович",
+    "email": "221214g_chvv@liceum.ztu.edu.ua",
+    "password": "2112",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "12554",
+    "type": "master",
+    "services": [
+      "Ремонт стартера"
+    ]
+  },
+  {
+    "id": "1736018023557",
+    "fullname": "Чижевський Сергій Бутусович",
+    "email": "vova3@gmail.com",
+    "password": "2112",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "12554",
+    "type": "master",
+    "services": [
+      "Ремонт стартера"
+    ]
+  },
+  {
+    "id": "1736018364994",
+    "fullname": "Чижевський Сергій Бутусович",
+    "email": "24g_c1hvv@liceum.ztu.edu.ua",
+    "password": "1",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "1",
+    "type": "master",
+    "services": [
+      "Ремонт стартера"
+    ]
+  },
+  {
+    "id": "1736018934954",
+    "fullname": "Чижевський Сергій Ьутусович",
+    "email": "exaggmple@example.com",
+    "password": "$2b$10$CUbVm9GKMFw1INu1XK73KO5tLkJH2QHSRC5LRNSE/Teu9ADY62iLW",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "Катерина ",
+    "type": "master",
+    "services": [
+      "Проблеми з акумулятором"
+    ]
+  },
+  {
+    "id": "1736018942747",
+    "fullname": "Чижевський Сергій Ьутусович",
+    "email": "exaggmp44le@example.com",
+    "password": "$2b$10$0H.Ela8iipQ3mi3jpPCWteEphfQHvcQDBmnLrgdgRzS4KYdWSTipi",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "Катерина ",
+    "type": "master",
+    "services": [
+      "Проблеми з акумулятором"
+    ]
+  },
+  {
+    "id": "1736018968322",
+    "fullname": "Чижевський Сергій Бутусович",
+    "email": "24g_c212.hvv@liceum.ztu.edu.ua",
+    "password": "$2b$10$PuTklq9fWuw2Vb5BqdOea.rDjH7MlOy7SfmJPuaENDdN3me9n0Ji2",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "12",
+    "type": "master",
+    "services": [
+      "Ремонт електродвигуна"
+    ]
+  },
+  {
+    "id": "1736018971090",
+    "fullname": "Чижевський Сергій Бутусович",
+    "email": "24g_c212hvv@liceum.ztu.edu.ua",
+    "password": "$2b$10$qrn97xOvMCQE2VP64s7mHeEz72To5lKWpUURSj9hZXep8mriUNryO",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "12",
+    "type": "master",
+    "services": [
+      "Ремонт електродвигуна"
+    ]
+  },
+  {
+    "id": "1736019006308",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "424g_chvv@liceum.ztu.edu.ua",
+    "password": "$2b$10$icyUdC5hhkMujAEiYsCJiuq1vZnKebvcSvxwcNeBPxiR6K9yrEqqG",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "444",
+    "type": "master",
+    "services": [
+      "Проблеми з акумулятором"
+    ]
+  },
+  {
+    "id": "1736019119790",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vov1avlog0080@gmail.com",
+    "password": "C240809v",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "Сергій",
+    "type": "master",
+    "services": [
+      "Перевірка системи охолодження"
+    ]
+  },
+  {
+    "id": "1736019804583",
+    "fullname": "апррпп",
+    "email": "fvvfv31275252221f@gmail.com",
+    "password": "52",
+    "phone": "ппп",
+    "district": "Богунський(Житомир)",
+    "nickname": "52",
+    "type": "master",
+    "services": [
+      "Проблеми з акумулятором"
+    ]
+  },
+  {
+    "id": "1736026384210",
+    "fullname": "апррпп",
+    "email": "fvvf542452vf@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "55454",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна",
+      "Ремонт трансмісії",
+      "Заміна гальмівних дисків",
+      "Ремонт кондиціонера"
+    ],
+    "avatarUrl": "/public/avatars/default-avatar.png"
+  },
+  {
+    "id": "1736026803939",
+    "fullname": "апррпп",
+    "email": "fvvfvf122121@gmail.com",
+    "password": "123456",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "12345666",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна",
+      "Заміна гальмівних дисків",
+      "Ремонт кондиціонера"
+    ],
+    "avatarUrl": "/no_avatar.webp"
+  },
+  {
+    "id": "1736027034356",
+    "fullname": "апррпп",
+    "email": "fvvf24552vf@gmail.com",
+    "password": "$2b$10$ML4vs31O8bm0BUpiuXbqcey2h6txzPlYxQCGFBo/gviTDwTjkhp4u",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "55555",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна"
+    ],
+    "createdAt": "2025-01-04T21:43:54.356Z",
+    "avatarUrl": "/no_avatar.webp"
+  },
+  {
+    "id": "1736027126249",
+    "fullname": "апррпп",
+    "email": "fvvfgbvf@gmail.com",
+    "password": "bg",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "gb",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна"
+    ]
+  },
+  {
+    "id": "1736064760108",
+    "fullname": "Бабич Олексій Сергійович",
+    "email": "24g_chv32v@liceum.ztu.edu.ua",
+    "password": "333333",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "333333",
+    "type": "master",
+    "services": [
+      "Заміна масла",
+      "Ремонт підвіски"
+    ]
+  },
+  {
+    "id": "1736066206527",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodyhmur240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "hhh",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна"
+    ]
+  },
+  {
+    "id": "1736066832767",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "voloduuuuuuymur240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "uuuuuuuu",
+    "type": "master",
+    "services": [
+      "Ремонт вихлопної системи"
+    ]
+  },
+  {
+    "id": "1736067051349",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "voljjodymur240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "jjjj",
+    "type": "master",
+    "services": [
+      "Заміна масла"
+    ]
+  },
+  {
+    "id": "1736067278655",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodylllllllmur240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "52",
+    "type": "master",
+    "services": [
+      "Ремонт системи випуску газів"
+    ]
+  },
+  {
+    "id": "1736067914753",
+    "fullname": "апррпп",
+    "email": "fvvf2452vf@gmail.com",
+    "password": "АМ",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "МАМ",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна"
+    ]
+  },
+  {
+    "id": "1736068171446",
+    "fullname": "Чижевський Володимир Володимирович",
+    "email": "fvvfv312221f@gmail.com",
+    "password": "544",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "5445",
+    "type": "master",
+    "services": [
+      "Ремонт підшипників"
+    ]
+  },
+  {
+    "id": "1736071375975",
+    "fullname": "Чижевський Сергій Бутусович",
+    "email": "vovavlo233g0080@gmail.com",
+    "password": "333",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "333",
+    "type": "master",
+    "services": [
+      "Ремонт електричних систем"
+    ]
+  },
+  {
+    "id": "1736089661458",
+    "fullname": "Чdижевский Володимир Іванович",
+    "email": "vovddddavlog0080@gmail.com",
+    "password": "ddd",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "ddd",
+    "type": "master",
+    "services": [
+      "Перевірка системи живлення"
+    ]
+  },
+  {
+    "id": "1736090915756",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "24g_c25hvv@liceum.ztu.edu.ua",
+    "password": ";/;",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "/;/;/",
+    "type": "master",
+    "services": [
+      "Проблеми з трансмісією"
+    ]
+  },
+  {
+    "id": "1736091569747",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "24g_c656hvv@liceum.ztu.edu.ua",
+    "password": "544",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "5445",
+    "type": "master",
+    "services": [
+      "Ремонт підвіски"
+    ]
+  },
+  {
+    "id": "1736101230805",
+    "fullname": "Volodymyr Chizhevskiy",
+    "email": "volodymu1r240809@gmail.com",
+    "password": "319560",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "1",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна"
+    ]
+  },
+  {
+    "id": "1736103649166",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "vovavlog4440080@gmail.com",
+    "password": "11",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "11",
+    "type": "master",
+    "services": [
+      "Ремонт вихлопної системи"
+    ]
+  },
+  {
+    "id": "1736103731934",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vovavlog008o90@gmail.com",
+    "password": "9",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "9",
+    "type": "master",
+    "services": [
+      "Перевірка системи живлення"
+    ]
+  },
+  {
+    "id": "1736104188081",
+    "fullname": "vfv",
+    "email": "fvvfvv@gmail.com",
+    "password": "п",
+    "phone": "vfvfv",
+    "district": "Богунський(Житомир)",
+    "nickname": "иппи",
+    "type": "master",
+    "services": []
+  },
+  {
+    "id": "1736106899562",
+    "fullname": "vfv",
+    "email": "fvf565vv@gmail.com",
+    "password": "длд",
+    "phone": "vfvfv",
+    "district": "Богунський(Житомир)",
+    "nickname": "ддддд",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна"
+    ]
+  },
+  {
+    "id": "1736185940804",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "24g_c45hvv@liceum.ztu.edu.ua",
+    "password": "1",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "1",
+    "type": "master",
+    "services": [
+      "Охолодження двигуна"
+    ]
+  },
+  {
+    "id": "1736194403242",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "24g_ch4vv@liceum.ztu.edu.ua",
+    "password": "4",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "4",
+    "type": "master",
+    "services": [
+      "Ремонт системи запалювання"
+    ]
+  },
+  {
+    "id": "1736194666754",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "vovav5log0080@gmail.com",
+    "password": "5",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "5",
+    "type": "master",
+    "services": [
+      "Ремонт рульового управління",
+      "Заміна гальмівної рідини",
+      "Ремонт паливної системи"
+    ]
+  }
+]
