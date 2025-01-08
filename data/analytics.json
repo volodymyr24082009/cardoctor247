@@ -814,5 +814,13 @@
     "ip": "::1",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
     "realIp": "::1"
+  },
+  {
+    "timestamp": "2025-01-08T19:42:41.121Z",
+    "method": "POST",
+    "url": "/register",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "realIp": "::1"
   }
 ]

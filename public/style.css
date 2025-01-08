@@ -561,117 +561,6 @@ body {
   padding: 0;
 }
 
-/* Стилі для секції "Наші майстри" */
-#masters-section {
-  background-color: #fff;
-  padding: 80px 0;
-  text-align: center;
-  width: 100%;
-  overflow: hidden;
-}
-
-#masters-section h2 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
-}
-
-#masters-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  width: 50px;
-  height: 3px;
-  background-color: #3498db;
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-#masters-section h2:hover::after {
-  width: 100px;
-}
-
-#masters-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.master-card {
-  background-color: #ecf0f1;
-  border-radius: 12px;
-  padding: 30px;
-  width: calc(25% - 40px);
-  min-width: 250px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.master-card::before {
-  content: attr(data-number);
-  position: absolute;
-  top: -25px;
-  left: -25px;
-  background-color: #3498db;
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  opacity: 0;
-  transform: scale(0.5) rotate(-45deg);
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.master-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.master-card:hover::before {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-}
-
-.master-image {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 5px solid #3498db;
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.master-card:hover .master-image {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
-}
-
-.master-name {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.master-specialty {
-  font-size: 1rem;
-  color: #7f8c8d;
-}
 
 /* Анімація появи майстрів */
 @keyframes fadeInUp {
@@ -695,16 +584,269 @@ body {
     opacity: 1;
   }
 }
-
-.master-card {
-  animation: fadeInUp 0.8s ease forwards, scaleIn 0.8s ease forwards;
-  opacity: 0;
+/* Стилі для секції "Наші майстри" */
+#masters-section {
+  background-color: #fff;
+  padding: 80px 0;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
 }
 
-.master-card:nth-child(1) { animation-delay: 0.1s; }
-.master-card:nth-child(2) { animation-delay: 0.3s; }
-.master-card:nth-child(3) { animation-delay: 0.5s; }
-.master-card:nth-child(4) { animation-delay: 0.7s; }
+#masters-section h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  animation: fadeInDown 1s ease-out;
+}
+
+#masters-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+#masters-section h2:hover::after {
+  width: 100px;
+}
+
+#masters-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.master-card {
+  background-color: #ecf0f1;
+  border-radius: 12px;
+  padding: 30px;
+  width: calc(33.333% - 27px);
+  min-width: 250px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out, float 3s ease-in-out infinite;
+  animation-fill-mode: both;
+  z-index: 1;
+}
+
+.master-card:nth-child(1) {
+  animation-delay: 0.2s, 0s;
+}
+
+.master-card:nth-child(2) {
+  animation-delay: 0.4s, 0.1s;
+}
+
+.master-card:nth-child(3) {
+  animation-delay: 0.6s, 0.2s;
+}
+
+.master-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  background-color: #3498db;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: scale(0.5) rotate(-45deg);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.master-card::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 15px;
+  background: 
+    linear-gradient(90deg, #3498db 50%, transparent 50%),
+    linear-gradient(90deg, #e74c3c 50%, transparent 50%),
+    linear-gradient(0deg, #3498db 50%, transparent 50%),
+    linear-gradient(0deg, #e74c3c 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 20px 4px, 20px 4px, 4px 20px, 4px 20px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  animation: border-dance 4s linear infinite;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.master-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.master-card:hover::before {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.master-card:hover::after {
+  animation-duration: 2s;
+  background-size: 30px 6px, 30px 6px, 6px 30px, 6px 30px;
+  opacity: 1;
+}
+
+.master-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 5px solid #3498db;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.master-card:hover .master-image {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
+  animation: pulse 1.5s infinite;
+}
+
+.master-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.master-card:hover .master-name {
+  color: #3498db;
+  animation: colorChange 3s infinite alternate;
+}
+
+.master-specialty {
+  font-size: 1rem;
+  color: #7f8c8d;
+  transition: all 0.3s ease;
+}
+
+.master-card:hover .master-specialty {
+  transform: scale(1.05);
+  color: #34495e;
+}
+
+/* Анімації */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+@keyframes border-dance {
+  0% {
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+  }
+  100% {
+    background-position: 40px 0, -40px 100%, 0 -40px, 100% 40px;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: #3498db;
+  }
+  50% {
+    color: #e74c3c;
+  }
+  100% {
+    color: #3498db;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  #masters-container {
+    max-width: 900px;
+  }
+  
+  .master-card {
+    width: calc(33.333% - 27px);
+  }
+}
+
+@media (max-width: 900px) {
+  #masters-container {
+    flex-wrap: wrap;
+  }
+  
+  .master-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .master-card {
+    width: 100%;
+  }
+}
+
+
 
 /* Стилі для секції "Залишити заявку" */
 .contact {
