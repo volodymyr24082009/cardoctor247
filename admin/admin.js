@@ -51,15 +51,13 @@ function updateAnalytics() {
     analytics = {
         totalUsers: users.length,
         totalMasters: masters.length,
-        successfulServices: masters.reduce((acc, master) => acc + (master.successfulServices || 0), 0),
-        unsuccessfulServices: masters.reduce((acc, master) => acc + (master.unsuccessfulServices || 0), 0)
+       
     };
 
     // Updating statistics display
     document.getElementById('totalUsers').textContent = analytics.totalUsers;
     document.getElementById('totalMasters').textContent = analytics.totalMasters;
-    document.getElementById('successfulServices').textContent = analytics.successfulServices;
-    document.getElementById('unsuccessfulServices').textContent = analytics.unsuccessfulServices;
+
 }
 
 // Function for displaying users
@@ -73,7 +71,7 @@ function displayUsers() {
             <td>${user.fullname || 'Не вказано'}</td>
             <td>${user.email}</td>
             <td>Користувач</td>
-            <td><button onclick="deleteUser('${user.email}')">Видалити</button></td>
+            
         `;
         tbody.appendChild(row);
     });
@@ -90,7 +88,7 @@ function displayMasters() {
             <td>${master.fullname || 'Не вказано'}</td>
             <td>${master.email}</td>
             <td>${master.services.join(', ') || 'Не вказано'}</td>
-            <td><button onclick="deleteMaster('${master.email}')">Видалити</button></td>
+           
         `;
         tbody.appendChild(row);
     });
@@ -108,66 +106,6 @@ function showTab(tabName) {
     document.getElementById('mastersTab').style.display = tabName === 'masters' ? 'block' : 'none';
 }
 
-// Function to delete a user
-async function deleteUser(email) {
-    if (confirm(`Ви впевнені, що хочете видалити користувача з email ${email}?`)) {
-        try {
-            const response = await fetch(`/api/users/${email}`, {
-                method: 'DELETE'
-            });
 
-            if (response.ok) {
-                users = users.filter(user => user.email !== email);
-                updateAnalytics();
-                displayUsers();
-                alert('Користувача успішно видалено');
-            } else {
-                const errorData = await response.json();
-                throw new Error(`Failed to delete user: ${errorData.message || response.statusText}`);
-            }
-        } catch (error) {
-            console.error('Error deleting user:', error);
-            alert(`Помилка при видаленні користувача: ${error.message}. Спробуйте ще раз.`);
-        }
-    }
-}
-async function deleteMaster(email) {
-    if (confirm(`Ви впевнені, що хочете видалити майстра з email ${email}?`)) {
-        try {
-            const response = await fetch(`/api/masters/${email}`, {
-                method: 'DELETE'
-            });
-
-            if (response.ok) {
-                masters = masters.filter(master => master.email !== email);
-                updateAnalytics();
-                displayMasters();
-                alert('Майстра успішно видалено');
-            } else {
-                const errorData = await response.json();
-                throw new Error(`Не вдалося видалити майстра: ${errorData.message || response.statusText}`);
-            }
-        } catch (error) {
-            console.error('Помилка видалення майстра:', error);
-            alert(`Помилка при видаленні майстра: ${error.message}. Спробуйте ще раз.`);
-        }
-    }
-}
-function deleteMaster(email) {
-    if (confirm(`Ви впевнені, що хочете видалити майстра з email ${email}?`)) {
-        masters = masters.filter(master => master.email !== email);
-        updateAnalytics();
-        displayMasters();
-        alert('Майстра успішно видалено (локально)');
-    }
-}
-function deleteUser(email) {
-    if (confirm(`Ви впевнені, що хочете видалити користувача з email ${email}?`)) {
-        users = users.filter(user => user.email !== email);
-        updateAnalytics();
-        displayUsers();
-        alert('Користувача успішно видалено (локально)');
-    }
-}
 // Automatic data update every 30 seconds
 setInterval(loadData, 30000);

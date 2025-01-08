@@ -1,79 +1,75 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Адмін Панель</title>
-    <link rel="icon" type="image/x-icon" href="./ICON_AUTO.png">
-    <link rel="stylesheet" href="admin.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="./ICON_AUTO.png" />
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../" />
+  </head>
+  <body>
     <div class="container">
-        <div class="login-form" id="loginForm">
-            <h1>Адмін Панель</h1>
-            <input type="password" id="password" placeholder="Введіть пароль">
-            <button onclick="login()">Увійти</button>
-            <p class="error-message" id="errorMessage"></p>
+      <div class="login-form" id="loginForm">
+        <h1>Адмін Панель</h1>
+        <input type="password" id="password" placeholder="Введіть пароль" />
+        <button onclick="login()">Увійти</button>
+        <p class="error-message" id="errorMessage"></p>
+      </div>
+      <div class="dashboard" id="dashboard">
+        <h1>Панель Адміністратора</h1>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Користувачі</h3>
+            <p id="totalUsers">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Майстри</h3>
+            <p id="totalMasters">0</p>
+          </div>
+         </div>
+
+        <div class="tabs">
+          <button class="tab-button active" onclick="showTab('users')">
+            Користувачі
+          </button>
+          <button class="tab-button" onclick="showTab('masters')">
+            Майстри
+          </button>
         </div>
-        <div class="dashboard" id="dashboard">
-            <h1>Панель Адміністратора</h1>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>Користувачі</h3>
-                    <p id="totalUsers">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Майстри</h3>
-                    <p id="totalMasters">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Успішні послуги</h3>
-                    <p id="successfulServices">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Неуспішні послуги</h3>
-                    <p id="unsuccessfulServices">0</p>
-                </div>
-            </div>
 
-            <div class="tabs">
-                <button class="tab-button active" onclick="showTab('users')">Користувачі</button>
-                <button class="tab-button" onclick="showTab('masters')">Майстри</button>
-            </div>
-
-            <div class="tab-content" id="usersTab">
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Ім'я</th>
-                                <th>Email</th>
-                                <th>Тип</th>
-                            </tr>
-                        </thead>
-                        <tbody id="usersTableBody"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="tab-content" id="mastersTab" style="display: none;">
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Ім'я</th>
-                                <th>Email</th>
-                                <th>Спеціалізація</th>
-                            </tr>
-                        </thead>
-                        <tbody id="mastersTableBody"></tbody>
-                    </table>
-                </div>
-            </div>
-            
+        <div class="tab-content" id="usersTab">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ім'я</th>
+                  <th>Email</th>
+                  <th>Тип</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody"></tbody>
+            </table>
+          </div>
         </div>
+
+        <div class="tab-content" id="mastersTab" style="display: none">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ім'я</th>
+                  <th>Email</th>
+                  <th>Спеціалізація</th>
+                </tr>
+              </thead>
+              <tbody id="mastersTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="admin.js"></script>
-</body>
+  </body>
 </html>

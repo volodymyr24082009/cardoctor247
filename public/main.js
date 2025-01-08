@@ -553,3 +553,69 @@ function createHeatmap() {
 // Call createHeatmap when the page loads
 window.addEventListener('load', createHeatmap);
 
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const modal = document.getElementById('modal');
+  const modalMessage = document.getElementById('modal-message');
+  const closeBtn = document.querySelector('.close');
+
+  // Анімація для полів форми
+  const formInputs = form.querySelectorAll('input, select');
+  formInputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentElement.classList.add('focused');
+    });
+    input.addEventListener('blur', function() {
+      if (this.value === '') {
+        this.parentElement.classList.remove('focused');
+      }
+    });
+  });
+
+  // Обробка відправки форми
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    let message = 'Ви обрали:\n';
+    for (let [key, value] of formData.entries()) {
+      message += `${key}: ${value}\n`;
+    }
+    modalMessage.textContent = message;
+    modal.classList.add('show');
+  });
+
+  // Закриття модального вікна
+  closeBtn.addEventListener('click', function() {
+    modal.classList.remove('show');
+  });
+
+  // Закриття модального вікна при кліку поза ним
+  window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+
+  // Динамічне оновлення вулиць залежно від обраного району
+  const districtSelect = document.getElementById('district');
+  const streetSelect = document.getElementById('street');
+  
+  const streets = {
+    'Богунський': ['Вулиця 1', 'Вулиця 2', 'Вулиця 3'],
+    'Корольовський': ['Вулиця 4', 'Вулиця 5', 'Вулиця 6']
+  };
+
+  districtSelect.addEventListener('change', function() {
+    const selectedDistrict = this.value;
+    streetSelect.innerHTML = '<option value="">Виберіть вулицю</option>';
+    if (selectedDistrict in streets) {
+      streets[selectedDistrict].forEach(street => {
+        const option = document.createElement('option');
+        option.value = street;
+        option.textContent = street;
+        streetSelect.appendChild(option);
+      });
+    }
+  });
+});
+

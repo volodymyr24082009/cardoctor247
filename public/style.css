@@ -126,31 +126,46 @@ nav {
   transition: var(--transition);
 }
 
-/* Hero Section */
+/* Hero Section - Updated */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: var(--header-bg);
   color: var(--white);
+  position: relative;
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .hero-content {
   max-width: 50%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero .subtitle {
   font-size: 1.5rem;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn-cta {
@@ -162,24 +177,22 @@ nav {
   border-radius: 50px;
   transition: var(--transition);
   display: inline-block;
+  position: relative;
+  z-index: 2;
+  border: 2px solid transparent;
 }
 
 .btn-cta:hover {
-  background-color: var(--secondary-color);
+  background-color: transparent;
+  border-color: var(--white);
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-image {
   max-width: 45%;
-  animation: float 6s ease-in-out infinite;
-}
-
-
-
-@keyframes float {
-  0%, 100% { transform: translatey(0px); }
-  50% { transform: translatey(-20px); }
+  position: relative;
+  z-index: 2;
 }
 
 /* Services Section */
@@ -244,6 +257,7 @@ nav {
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: var(--transition);
+  position: relative;
 }
 
 .master-card:hover {
@@ -278,15 +292,13 @@ nav {
   background-color: var(--white);
 }
 
-.contact-form,
-.form-container {
+.contact-form {
   max-width: 600px;
   margin: 0 auto;
   padding: 30px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--white);
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  color: var(--white);
 }
 
 .form-group {
@@ -299,6 +311,7 @@ nav {
   margin-bottom: 5px;
   font-size: 1rem;
   font-weight: bold;
+  color: var(--text-color);
 }
 
 .form-group input,
@@ -306,27 +319,20 @@ nav {
 .styled-select {
   width: 100%;
   padding: 10px;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   background: var(--white);
   color: var(--text-color);
   font-size: 1rem;
   outline: none;
-  box-shadow: var(--shadow);
   transition: var(--transition);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .styled-select:focus {
-  border: 2px solid var(--secondary-color);
-}
-
-.form-group input:hover,
-.form-group textarea:hover,
-.styled-select:hover {
-  background: #f0f0f0;
-  transform: scale(1.02);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(79, 158, 255, 0.1);
 }
 
 .btn-submit {
@@ -375,10 +381,6 @@ footer {
   margin-bottom: 20px;
 }
 
-.footer-section p {
-  margin-bottom: 10px;
-}
-
 .social-icons {
   display: flex;
   gap: 15px;
@@ -401,95 +403,66 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(173, 216, 230, 0.7);
-  backdrop-filter: blur(5px);
+/* Masters Stats Section */
+.masters-stats {
+  background-color: var(--white);
+  padding: 2rem;
 }
 
-.modal-content {
-  background: var(--white);
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.stat-item {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  animation: slide-down 0.5s ease;
 }
 
-@keyframes slide-down {
-  from { transform: translateY(-100px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-content p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 1.5rem;
+.stat-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   color: var(--text-color);
-  cursor: pointer;
-  font-weight: bold;
 }
 
-.close:hover {
+.stat-item p {
+  font-size: 1.5rem;
   color: var(--primary-color);
-}
-
-/* Working Hours Styles */
-.working-hours {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.working-hours p {
-  margin: 5px 0;
-  font-size: 0.9rem;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .nav-links {
-    position: absolute;
-    right: 0px;
-    height: 92vh;
-    top: 8vh;
+    position: fixed;
+    right: -100%;
+    height: 100vh;
+    top: 0;
     background-color: var(--header-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in;
+    width: 70%;
+    transition: right 0.3s ease-in-out;
+    padding-top: 60px;
   }
 
-  .nav-links li {
-    opacity: 0;
+  .nav-links.active {
+    right: 0;
   }
 
   .burger {
     display: block;
+    z-index: 1001;
   }
 
   .hero {
     flex-direction: column;
     text-align: center;
+    padding-top: 80px;
   }
 
   .hero-content,
@@ -505,6 +478,10 @@ footer {
     font-size: 1.2rem;
   }
 
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
   .footer-content {
     flex-direction: column;
   }
@@ -513,41 +490,13 @@ footer {
     margin-right: 0;
   }
 
-  .form-container,
   .contact-form {
     width: 90%;
     padding: 20px;
   }
-
-  .btn-submit,
-  .btn-cta {
-    width: 100%;
-    max-width: none;
-  }
 }
 
-.nav-active {
-  transform: translateX(0%);
-}
-
-@keyframes navLinkFade {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0px); }
-}
-
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px,6px);
-}
-
-.toggle .line2 {
-  opacity: 0;
-}
-
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px,-6px);
-}
-
-/* Accessibility Improvements */
+/* Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -560,7 +509,7 @@ footer {
   border-width: 0;
 }
 
-/* Focus styles for keyboard navigation */
+/* Focus styles */
 a:focus,
 button:focus,
 input:focus,
@@ -568,29 +517,6 @@ textarea:focus,
 select:focus {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
-}
-
-/* High contrast mode adjustments */
-@media (prefers-contrast: high) {
-  :root {
-    --primary-color: #0000FF;
-    --secondary-color: #FF00FF;
-    --text-color: #000000;
-    --bg-color: #FFFFFF;
-  }
-
-  .hero,
-  .contact-form,
-  .form-container {
-    background: var(--bg-color);
-    color: var(--text-color);
-  }
-
-  .btn,
-  .btn-cta,
-  .btn-submit {
-    border: 2px solid var(--text-color);
-  }
 }
 
 /* Print styles */
@@ -620,173 +546,138 @@ select:focus {
     page-break-after: avoid;
   }
 
-
   @page {
     margin: 2cm;
   }
 }
 
-.master-card {
-  background-color: #fff; /* білий фон для картки */
-  padding: 20px; /* відступи всередині картки */
-  margin: 10px; /* відступи між картками */
-  border-radius: 8px; /* округлення кутів */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* м'яка тінь для картки */
-}
-
-.master-card h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.master-card p {
-  font-size: 1em;
-  margin-bottom: 5px;
-}
-
-.master-card p strong {
-  font-weight: bold;
-}
-
-.masters-stats {
-  background-color: #f9f9f9;
-  padding: 2rem;
-}
-
-.masters-stats .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.stat-item {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.stat-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.stat-item p {
-  font-size: 1.5rem;
+/* Загальні стилі */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
   color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-/* Стилі для заголовка "Наші Майстри" */
+/* Стилі для секції "Наші майстри" */
+#masters-section {
+  background-color: #fff;
+  padding: 80px 0;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
 #masters-section h2 {
-  text-align: center; /* Центрування тексту по горизонталі */
-  font-size: 2rem; /* Розмір шрифту */
-  color: #4a90e2; /* Колір тексту (синій для відповідності дизайну) */
-  margin-top: 40px; /* Відступ зверху для кращого вигляду */
-  margin-bottom: 20px; /* Відступ знизу */
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
 }
 
-/* Загальний стиль для блоку з майстрами */
+#masters-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+#masters-section h2:hover::after {
+  width: 100px;
+}
+
 #masters-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматичне розташування карток майстрів */
-  gap: 20px; /* Відступи між картками майстрів */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Стилі для карток майстрів */
-.master {
-  background-color: #fff; /* Білий фон для кожного майстра */
-  padding: 20px; /* Відступи всередині картки */
-  border-radius: 10px; /* Заокруглення кутів */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легка тінь */
-  transition: transform 0.3s ease-in-out; /* Анімація для ефекту підняття при наведенні */
+.master-card {
+  background-color: #ecf0f1;
+  border-radius: 12px;
+  padding: 30px;
+  width: calc(25% - 40px);
+  min-width: 250px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Ефект при наведенні на картку майстра */
-.master:hover {
-  transform: translateY(-10px); /* Легке підняття картки */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Тінь для підвищення ефекту */
-}
-
-/* Стилі для заголовка майстра */
-.master h2 {
-  font-size: 1.5rem; /* Розмір шрифту для імені майстра */
-  color: #333; /* Колір тексту */
-  margin-bottom: 10px; /* Відступ знизу */
-}
-
-/* Стилі для опису послуг */
-.master ul {
-  list-style-type: none; /* Видалення маркерів */
-  padding: 0;
-}
-
-.master ul li {
-  font-size: 1rem; /* Розмір шрифту для послуг */
-  color: #555; /* Колір тексту для послуг */
-}
-
-/* Стилі для додаткової інформації про майстра */
-.master-info p {
-  font-size: 1rem;
-  color: #777; /* Світліший текст для додаткової інформації */
-  margin: 5px 0; /* Відступи між рядками */
-}
-
-canvas {
-  max-width: 100%;  
-  margin-top: 20px;
-}
-
-@keyframes enchanting-glow {
-  0% {
-    box-shadow: 0 0 5px rgba(66, 135, 245, 0.3),
-                0 0 10px rgba(66, 135, 245, 0.3),
-                0 0 15px rgba(66, 135, 245, 0.3);
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    box-shadow: 0 0 10px rgba(66, 135, 245, 0.5),
-                0 0 20px rgba(66, 135, 245, 0.5),
-                0 0 30px rgba(66, 135, 245, 0.5);
-    transform: translateY(-5px) scale(1.02);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(66, 135, 245, 0.3),
-                0 0 10px rgba(66, 135, 245, 0.3),
-                0 0 15px rgba(66, 135, 245, 0.3);
-    transform: translateY(0) scale(1);
-  }
+.master-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  background-color: #3498db;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: scale(0.5) rotate(-45deg);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .master-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 20px rgba(66, 135, 245, 0.4);
-  background: linear-gradient(145deg, #ffffff, #f0f7ff);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Додаткова анімація для елементів всередині картки */
-.master-card * {
-  transition: all 0.3s ease;
+.master-card:hover::before {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
-.master-card:hover * {
-  color: #2563eb;
+.master-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 5px solid #3498db;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Плавна анімація появи при завантаженні */
+.master-card:hover .master-image {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
+}
+
+.master-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.master-specialty {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+/* Анімація появи майстрів */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -794,33 +685,196 @@ canvas {
   }
 }
 
-#masters-list .master-card {
-  animation: fadeInUp 0.6s ease-out forwards;
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.master-card {
+  animation: fadeInUp 0.8s ease forwards, scaleIn 0.8s ease forwards;
   opacity: 0;
 }
 
-/* Затримка анімації для кожної наступної картки */
-#masters-list .master-card:nth-child(1) { animation-delay: 0.1s; }
-#masters-list .master-card:nth-child(2) { animation-delay: 0.2s; }
-#masters-list .master-card:nth-child(3) { animation-delay: 0.3s; }
-#masters-list .master-card:nth-child(4) { animation-delay: 0.4s; }
-/* і так далі... */
+.master-card:nth-child(1) { animation-delay: 0.1s; }
+.master-card:nth-child(2) { animation-delay: 0.3s; }
+.master-card:nth-child(3) { animation-delay: 0.5s; }
+.master-card:nth-child(4) { animation-delay: 0.7s; }
 
-/* Опціональні додаткові ефекти */
-.master-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 10px;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  z-index: 1;
-  transition: all 0.5s ease;
+/* Стилі для секції "Залишити заявку" */
+.contact {
+  background-color: #ecf0f1;
+  padding: 80px 0;
 }
 
-.master-card:hover::before {
-  background: linear-gradient(45deg, transparent, rgba(66, 135, 245, 0.1), transparent);
-  transform: translateX(100%);
+.section-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.form-group label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  color: #999;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:not(:placeholder-shown) + label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  color: #3498db;
+}
+
+.styled-select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px top 50%;
+}
+
+.form-container {
+  display: flex;
+  gap: 25px;
+}
+
+.form-container .form-group {
+  flex: 1;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стилі для модального вікна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Адаптивний дизайн */
+@media (max-width: 1200px) {
+  .master-card {
+    width: calc(33.33% - 40px);
+  }
+}
+
+@media (max-width: 900px) {
+  .master-card {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .master-card {
+    width: 100%;
+  }
+  
+  .form-container {
+    flex-direction: column;
+  }
 }
