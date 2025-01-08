@@ -1,27 +1,30 @@
+/* Base styles */
 body, html {
     height: 100%;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1a1a2e; /* Теплий темно-синій фон */
-    font-family: 'Georgia', serif; /* Вибір класичного шрифта для українського стилю */
+    background: #1a1a2e;
+    font-family: 'Georgia', serif;
     overflow: hidden;
     position: relative;
 }
 
 .container {
     text-align: center;
-    padding: 20px;
-    color: #F1C40F; /* Золотистий колір для тексту, що асоціюється з українським орнаментом */
-    background-color: rgba(255, 255, 255, 0.1); /* Легкий білий напівпрозорий фон */
+    padding: 5vw;
+    color: #F1C40F;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
 }
 
 h1 {
-    color: #F1C40F; /* Золотистий */
-    font-size: 4rem;
+    color: #F1C40F;
+    font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 2rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     font-family: 'Georgia', serif;
@@ -31,12 +34,12 @@ h1 {
 }
 
 .button {
-    padding: 20px 40px;
-    font-size: 24px;
+    padding: clamp(10px, 3vw, 20px) clamp(20px, 6vw, 40px);
+    font-size: clamp(16px, 4vw, 24px);
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-    background-color: #F1C40F; /* Золотистий */
+    background-color: #F1C40F;
     border: 2px solid #F39C12;
     border-radius: 50px;
     cursor: pointer;
@@ -45,16 +48,18 @@ h1 {
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
     font-family: 'Georgia', serif;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 .button:hover {
-    transform: scale(1.1) translateY(-5px);
+    transform: scale(1.05) translateY(-3px);
     box-shadow: 0 10px 30px rgba(241, 196, 15, 0.7);
-    background-color: #F39C12; /* Трохи темніший відтінок золотого */
+    background-color: #F39C12;
 }
 
 .button:active {
-    transform: scale(0.95) translateY(3px);
+    transform: scale(0.98) translateY(2px);
     box-shadow: 0 5px 10px rgba(241, 196, 15, 0.7);
     background-color: #F1C40F;
 }
@@ -86,3 +91,79 @@ h1 {
     50% { opacity: 0.3; }
     100% { opacity: 0.1; }
 }
+
+/* Media Queries for better responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 4vw;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .button {
+        padding: clamp(8px, 2.5vw, 15px) clamp(16px, 5vw, 30px);
+        font-size: clamp(14px, 3.5vw, 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 3vw;
+    }
+
+    h1 {
+        font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+    }
+
+    .button {
+        padding: clamp(6px, 2vw, 12px) clamp(12px, 4vw, 24px);
+        font-size: clamp(12px, 3vw, 18px);
+    }
+}
+
+/* Ensure text remains readable on very small screens */
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 1rem;
+    }
+
+    .button {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+/* Adjustments for larger screens */
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 800px;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .button {
+        font-size: 28px;
+    }
+}
+
+/* Ensure the design works well on landscape orientations */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 2vh 5vw;
+    }
+
+    h1 {
+        font-size: clamp(1rem, 4vh, 2.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .button {
+        padding: clamp(5px, 2vh, 10px) clamp(10px, 4vw, 20px);
+        font-size: clamp(10px, 3vh, 18px);
+    }
+}
+

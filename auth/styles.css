@@ -1,6 +1,12 @@
-body {
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
   min-height: 100vh;
   background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%20%D0%B2%D0%B0%D0%B9%D0%B1%D0%BE%D0%B2%D0%B5%20%D1%84%D0%BE%D1%82%D0%BE.jpg-eM59tLnvyzxp6fY1bAavTDqHmt80cv.jpeg');
   background-size: cover;
@@ -10,20 +16,14 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   position: relative;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Remove any potential wrapper styles that might cause duplication */
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Ensure the overlay covers exactly the same area as the background */
 body::before {
   content: '';
-  position: fixed; /* Change from absolute to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -32,469 +32,296 @@ body::before {
   z-index: 1;
   pointer-events: none;
 }
-  
-  /* Модальне вікно */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.6s ease-out;
-    padding: 20px; /* додано для забезпечення відступів на малих екранах */
-    box-sizing: border-box; /* Щоб padding не виходив за межі */
-  }
-  
-  /* Ефект розмиття фону за модальним вікном */
-  .modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px);
-    z-index: -1;
-  }
-  
-  /* Стилі для модального контенту */
-  .modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 500px; /* Максимальна ширина */
-    height: auto; /* Автоматична висота */
-    max-height: 90%; /* Максимальна висота */
-    overflow-y: auto; /* Прокрутка, якщо вміст перевищує висоту */
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-    transform: scale(0.8);
-    animation: zoomIn 0.5s ease-out forwards;
-    box-sizing: border-box; /* Щоб padding враховувався */
-  }
-  
-  /* Кнопки */
-  .modal-button {
-    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Градієнт для кнопки */
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin: 10px 0;
-  }
-  
-  .modal-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .modal-button:active {
-    transform: translateY(2px);
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Стилі для контейнера */
-  .container {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 40px;
-    margin: 40px auto;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 500px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: slideInFromBottom 0.6s ease-out;
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.6s ease-out;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-@keyframes slideInFromBottom {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: -1;
 }
 
-/* Add these styles to make the content inside the container more readable */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(0.8);
+  animation: zoomIn 0.5s ease-out forwards;
+  box-sizing: border-box;
+}
+
+.modal-button {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.modal-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-button:active {
+  transform: translateY(2px);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInFromBottom 0.6s ease-out;
+}
+
 .container h2 {
-    color: white;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .container button {
-    background: rgba(108, 99, 255, 0.7);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    margin: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: rgba(108, 99, 255, 0.7);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .container button:hover {
-    background: rgba(108, 99, 255, 0.9);
-    transform: translateY(-2px);
+  background: rgba(108, 99, 255, 0.9);
+  transform: translateY(-2px);
 }
-  
-  /* Стилі для форми реєстрації */
-  #registrationForm {
-    display: block;
-    margin-top: 30px;
-    text-align: left;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+#registrationForm {
+  display: block;
+  margin-top: 30px;
+  text-align: left;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: slideInFromBottom 0.7s ease-out forwards;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+  border-color: #7a56b9;
+  box-shadow: 0 0 8px rgba(122, 86, 185, 0.6);
+  background-color: #fff;
+}
+
+input[type="text"].icon, input[type="password"].icon, input[type="email"].icon {
+  background-image: url('path/to/icon.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+}
+
+h2, p {
+  font-family: 'Roboto', sans-serif;
+  color: #444;
+}
+
+h2 {
+  font-size: 80px;
+  margin-bottom: 45px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4b4b8b;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  margin: 10px 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
     opacity: 0;
-    animation: slideInFromBottom 0.7s ease-out forwards;
   }
-  input[type="text"].icon, input[type="password"].icon, input[type="email"].icon {
-    background-image: url('path/to/icon.png');
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  input[type="text"], input[type="password"], input[type="email"] {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background-color: #f9f9f9;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
   }
-  
-  input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-    border-color: #7a56b9;
-    box-shadow: 0 0 8px rgba(122, 86, 185, 0.6);
-    background-color: #fff;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  /* Іконки всередині полів вводу */
-  input[type="text"].icon, input[type="password"].icon, input[type="email"].icon {
-    background-image: url('path/to/icon.png'); /* Шлях до іконки */
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    padding-left: 40px; /* Залишити місце для іконки */
-  }
-  
-  /* Заголовки та текст */
-  h2, p {
-    font-family: 'Roboto', sans-serif;
-    color: #444;
-  }
-  
-  h2 {
-    font-size: 80px;
-    margin-bottom: 45px
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #4b4b8b; /* Легкий відтінок фіолетового для акценту */
-  }
-  
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #666;
-    margin: 10px 0;
-  }
-  
-  /* Анімації */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideInFromBottom {
-    from {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  /* Додаткові елементи */
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    color: #aaa;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .close-button:hover {
-    color: #444;
-  }
-  
-  /* Адаптивний дизайн */
-  @media (max-width: 600px) {
-    .modal-content {
-      width: 100%;
-      max-width: 90%; /* Зменшення ширини на мобільних */
-      padding: 15px;
-    }
-  
-    .modal-button {
-      padding: 15px 30px;
-      font-size: 14px;
-    }
-  
-    #registrationForm {
-      padding: 20px;
-    }
-  
-    input[type="text"], input[type="password"], input[type="email"] {
-      padding: 12px;
-    }
-  }
-  
-  .sidebar {
-    transition: transform 0.3s ease; /* Smooth opening and closing */
-    transform: translateX(-100%);
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 15px;
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #4b4b8b;
-  }
-  
-  .sidebar-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    color: #fff;
-    background-color: #3a3a8c;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  
-  .sidebar-button:hover {
-    background-color: #4b4b8b;
-  }
-  /* Контейнер для поля вводу */
-  .input-container {
-    margin-bottom: 20px; /* Відступ між полями */
-    text-align: left;
-  }
-  
-  /* Мітка для поля вводу */
-  .input-label {
-    font-size: 16px;
-    font-weight: 500;
-    color: #4b4b8b; /* Фіолетовий колір для мітки */
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  /* Стилі для поля вводу */
-  .input-field {
-    width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    color: #333;
-  }
-  
-  /* При фокусі на полі вводу */
-  .input-field:focus {
-    border-color: #7a56b9; /* Фіолетовий колір при фокусі */
-    box-shadow: 0 0 8px rgba(122, 86, 185, 0.6); /* Легке підсвічування */
-    background-color: #fff;
-  }
-  
-  /* Стилі для помилок або підказок */
-  .input-field.error {
-    border-color: #e74c3c; /* Червоний колір при помилці */
-    background-color: #fce4e4; /* Світло-червоний фон */
-  }
-  
-  /* Іконки всередині поля вводу (якщо потрібно) */
-  .input-field.icon {
-    padding-left: 40px; /* Відступ для іконки */
-    background-image: url('path/to/icon.png'); /* Шлях до іконки */
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
-  }
-  /* Загальні стилі для контейнера */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f1f1f1;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  
-  /* Стиль для заголовків */
-  h2 {
-    text-align: center;
-    color: #5f4b8b;
-  }
-  
-  /* Стилі для кнопок */
-  button {
-    background-color: #5f4b8b;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  button:hover {
-    background-color: #4a3a7a;
-  }
-  
-  /* Стилі для форми */
-  label {
-    font-size: 14px;
-    color: black;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="password"],
-  input[type="file"] {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  input[type="file"] {
-    padding: 5px;
-  }
-  
-  /* Стиль для модальних вікон */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Стилі для чекбоксів */
-  h4 {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #5f4b8b;
-  }
-  
-  /* Стилизовані кнопки підтвердження */
-  .modal-button {
-    background-color: #5f4b8b;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  .modal-button:hover {
-    background-color: #4a3a7a;
-  }
-  
-  /* Підсвітка на введенні в форми */
-  input:focus {
-    border-color: #5f4b8b;
-    box-shadow: 0 0 5px rgba(95, 75, 139, 0.5);
-  }
-  /* Загальні стилі для форми */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #444;
+}
+
+.sidebar {
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #4b4b8b;
+}
+
+.sidebar-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #fff;
+  background-color: #3a3a8c;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.sidebar-button:hover {
+  background-color: #4b4b8b;
+}
+
+.input-container {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4b4b8b;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.input-field:focus {
+  border-color: #7a56b9;
+  box-shadow: 0 0 8px rgba(122, 86, 185, 0.6);
+  background-color: #fff;
+}
+
+.input-field.error {
+  border-color: #e74c3c;
+  background-color: #fce4e4;
+}
+
+.input-field.icon {
+  padding-left: 40px;
+  background-image: url('path/to/icon.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
 form {
   font-family: 'Arial', sans-serif;
   margin: 20px;
@@ -505,7 +332,6 @@ form {
   width: 500px;
 }
 
-/* Стиль для мітки */
 label {
   font-size: 18px;
   margin-bottom: 10px;
@@ -513,7 +339,6 @@ label {
   font-weight: bold;
 }
 
-/* Стиль для випадаючого списку */
 select {
   width: 100%;
   padding: 10px;
@@ -528,7 +353,6 @@ select {
   margin-bottom: 20px;
 }
 
-/* Стиль для вибраного елемента */
 select option {
   font-size: 16px;
   padding: 5px;
@@ -536,34 +360,152 @@ select option {
   color: #333;
 }
 
-/* Стиль при наведенні */
 select:hover {
   border-color: #6a11cb;
   background-color: #ffffff;
 }
 
-/* Анімація при фокусі */
 select:focus {
   outline: none;
   box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
   border-color: #2575fc;
 }
-/* Стилізація для заголовка */
+
 h6 {
-  text-align: center; /* Центрування тексту */
-  color: #4A00E0; /* Фіолетовий градієнтний колір */
-  font-size: 2.5rem; /* Розмір шрифту */
-  font-weight: bold; /* Жирний текст */
-  background: linear-gradient(90deg, #4A00E0, #8E2DE2); /* Градієнтний фон */
-  -webkit-background-clip: text; /* Кліпування тексту під фон */
-  -webkit-text-fill-color: transparent; /* Прозорий текст із кольором фону */
-  margin: 20px auto; /* Відступи зверху і знизу */
-  padding: 10px; /* Внутрішній відступ */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тінь для тексту */
-  border-bottom: 2px solid #8E2DE2; /* Нижня рамка для акценту */
+  text-align: center;
+  color: #4A00E0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #4A00E0, #8E2DE2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 20px auto;
+  padding: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #8E2DE2;
 }
-@media (max-width: 600px) {
-  body {
-    background-size: cover; /* Ensure the background image fits well */
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .modal-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"], .input-field {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .sidebar ul li {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .sidebar-button {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  form {
+    width: 90%;
+    margin: 10px;
+    padding: 15px;
+  }
+
+  select {
+    font-size: 14px;
+  }
+
+  h6 {
+    font-size: 2rem;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    margin: 15px auto;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"], .input-field {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .sidebar ul li {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .sidebar-button {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+
+  form {
+    width: 95%;
+    margin: 5px;
+    padding: 10px;
+  }
+
+  select {
+    font-size: 12px;
+  }
+
+  h6 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Landscape orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    margin: 10px auto;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .modal-content {
+    max-height: 80vh;
+  }
+
+  .sidebar {
+    width: 40%;
+    max-width: 200px;
+  }
+}
+
