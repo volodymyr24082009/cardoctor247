@@ -8,6 +8,46 @@
     --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+.home-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.home-button:active {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes button-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.home-button {
+    animation: button-float 2s infinite ease-in-out;
+}
 * {
     box-sizing: border-box;
     margin: 0;

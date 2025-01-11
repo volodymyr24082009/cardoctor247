@@ -469,5 +469,38 @@
     "nickname": "Катерина ",
     "type": "user",
     "services": []
+  },
+  {
+    "id": "1736451098160",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vovavlog00801@gmail.com",
+    "password": "11",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "11",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1736625427647",
+    "fullname": "Чижевська Катерина Сергіївна",
+    "email": "b-kate11@ukr.net",
+    "password": "1111",
+    "phone": "0977484850",
+    "district": "Богунський(Житомир)",
+    "nickname": "Катерина 11",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1736632726966",
+    "fullname": "Чижевский Володимир Іванович",
+    "email": "24g_ch24vv@liceum.ztu.edu.ua",
+    "password": "319560",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "Катерина ",
+    "type": "user",
+    "services": []
   }
 ]
