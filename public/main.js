@@ -98,15 +98,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-
-  // **Обробка форми контактів**
+//Nodemailer
   if (contactForm) {
     contactForm.addEventListener("submit", async (e) => {
-      e.preventDefault(); // Відмінити перезавантаження сторінки
-
+      e.preventDefault();
+  
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
-
+  
+      // Ensure district and street are included
+      data.district = document.getElementById('district').value;
+      data.street = document.getElementById('street').value;
+  
       try {
         const response = await fetch("/api/submit-request", {
           method: "POST",
@@ -115,9 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(data),
         });
-
+  
         const result = await response.json();
-
+  
         if (response.ok) {
           alert(result.message + " Ми зв'яжемося з вами протягом 15 хвилин.");
           contactForm.reset();
@@ -132,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
+  
 
   // **Мобільна навігація**
   if (burger && navLinks) {
@@ -290,31 +295,7 @@ window.onload = function () {
 };
 let userActions = []; // Масив для зберігання рухів і взаємодій користувача
 
-// Відслідковуємо рух курсора
-document.addEventListener("mousemove", (event) => {
-  let mouseX = event.clientX;
-  let mouseY = event.clientY;
 
-  // Зберігаємо дані про рух
-  userActions.push({
-    type: "mousemove",
-    x: mouseX,
-    y: mouseY,
-    timestamp: new Date(),
-  });
-});
-
-// Відслідковуємо кліки по елементах
-document.addEventListener("click", (event) => {
-  let element = event.target;
-  userActions.push({
-    type: "click",
-    element: element.tagName,
-    id: element.id,
-    class: element.className,
-    timestamp: new Date(),
-  });
-});
 
 // Функція для відправки зібраних даних на сервер
 function sendUserActionsToServer() {
@@ -333,46 +314,7 @@ function sendUserActionsToServer() {
 // Відправляти дані на сервер кожні 30 секунд
 setInterval(sendUserActionsToServer, 30000);
 // Функція для отримання даних з сервера
-async function fetchCursorData() {
-  const response = await fetch("/api/get-cursor-data");
-  const data = await response.json();
-  return data;
-}
 
-// Створення графіка руху курсора
-function createCursorChart(data) {
-  const ctx = document.getElementById("cursorMovementChart").getContext("2d");
-
-  // Мапуємо дані у формат, який Chart.js розуміє
-  const coordinates = data.map((d) => ({ x: d.x, y: d.y }));
-
-  new Chart(ctx, {
-    type: "scatter",
-    data: {
-      datasets: [
-        {
-          label: "Рух курсора",
-          data: coordinates,
-          backgroundColor: "rgba(75, 192, 192, 1)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        x: {
-          type: "linear",
-          position: "bottom",
-        },
-        y: {
-          type: "linear",
-          position: "left",
-        },
-      },
-    },
-  });
-}
 
 // Завантаження та візуалізація даних
 async function loadAndVisualize() {
@@ -456,166 +398,9 @@ async function fetchApplications() {
 // Виклик функції для завантаження заявок
 fetchApplications();
 
-// Cursor movement tracking
-let cursorMovements = [];
-let isTracking = true;
 
-document.addEventListener('mousemove', (e) => {
-  if (!isTracking) return;
 
-  cursorMovements.push({
-    x: e.clientX,
-    y: e.clientY,
-    timestamp: new Date().toISOString()
-  });
 
-  // Send cursor movements to server every 100 movements
-  if (cursorMovements.length >= 100) {
-    sendCursorMovements();
-  }
-});
 
-function sendCursorMovements() {
-  if (cursorMovements.length === 0) return;
 
-  fetch('/api/save-cursor-movement', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(cursorMovements)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Cursor movements saved:', data);
-    cursorMovements = []; // Clear the array after sending
-  })
-  .catch(error => {
-    console.error('Error saving cursor movements:', error);
-  });
-}
-
-// Send remaining cursor movements when user leaves the page
-window.addEventListener('beforeunload', sendCursorMovements);
-
-// Create heatmap
-function createHeatmap() {
-  isTracking = false; // Stop tracking while creating heatmap
-
-  fetch('/api/get-cursor-movement')
-    .then(response => response.json())
-    .then(data => {
-      const heatmapInstance = h337.create({
-        container: document.body,
-        radius: 20,
-        maxOpacity: .5,
-        minOpacity: 0,
-        blur: .75
-      });
-
-      const points = data.map(point => ({
-        x: point.x,
-        y: point.y,
-        value: 1
-      }));
-
-      heatmapInstance.setData({
-        max: 5,
-        data: points
-      });
-
-      // Create a button to toggle heatmap visibility
-      const toggleButton = document.createElement('button');
-      toggleButton.textContent = 'Toggle Heatmap';
-      toggleButton.style.position = 'fixed';
-      toggleButton.style.top = '10px';
-      toggleButton.style.right = '10px';
-      toggleButton.style.zIndex = '9999';
-
-      toggleButton.addEventListener('click', () => {
-        const heatmapContainer = document.querySelector('.heatmap-canvas');
-        if (heatmapContainer.style.display === 'none') {
-          heatmapContainer.style.display = 'block';
-          isTracking = false;
-        } else {
-          heatmapContainer.style.display = 'none';
-          isTracking = true;
-        }
-      });
-
-      document.body.appendChild(toggleButton);
-    })
-    .catch(error => {
-      console.error('Error creating heatmap:', error);
-    });
-}
-
-// Call createHeatmap when the page loads
-window.addEventListener('load', createHeatmap);
-
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contact-form');
-  const modal = document.getElementById('modal');
-  const modalMessage = document.getElementById('modal-message');
-  const closeBtn = document.querySelector('.close');
-
-  // Анімація для полів форми
-  const formInputs = form.querySelectorAll('input, select');
-  formInputs.forEach(input => {
-    input.addEventListener('focus', function() {
-      this.parentElement.classList.add('focused');
-    });
-    input.addEventListener('blur', function() {
-      if (this.value === '') {
-        this.parentElement.classList.remove('focused');
-      }
-    });
-  });
-
-  // Обробка відправки форми
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    let message = 'Ви обрали:\n';
-    for (let [key, value] of formData.entries()) {
-      message += `${key}: ${value}\n`;
-    }
-    modalMessage.textContent = message;
-    modal.classList.add('show');
-  });
-
-  // Закриття модального вікна
-  closeBtn.addEventListener('click', function() {
-    modal.classList.remove('show');
-  });
-
-  // Закриття модального вікна при кліку поза ним
-  window.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.classList.remove('show');
-    }
-  });
-
-  // Динамічне оновлення вулиць залежно від обраного району
-  const districtSelect = document.getElementById('district');
-  const streetSelect = document.getElementById('street');
-  
-  const streets = {
-    'Богунський': ['Вулиця 1', 'Вулиця 2', 'Вулиця 3'],
-    'Корольовський': ['Вулиця 4', 'Вулиця 5', 'Вулиця 6']
-  };
-
-  districtSelect.addEventListener('change', function() {
-    const selectedDistrict = this.value;
-    streetSelect.innerHTML = '<option value="">Виберіть вулицю</option>';
-    if (selectedDistrict in streets) {
-      streets[selectedDistrict].forEach(street => {
-        const option = document.createElement('option');
-        option.value = street;
-        option.textContent = street;
-        streetSelect.appendChild(option);
-      });
-    }
-  });
-});
 

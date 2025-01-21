@@ -100,5 +100,59 @@
       "Ремонт трансмісії",
       "Заміна гальмівних дисків"
     ]
+  },
+  {
+    "id": "1736518295731",
+    "fullname": "Дмитро Іванов",
+    "email": "dmytro.ivanov@gmail.com",
+    "password": "dmytroivanov123",
+    "phone": "+380961234560",
+    "district": "Богунський (Житомир)",
+    "nickname": "МайстерДмитро",
+    "type": "master",
+    "services": [
+      "Ремонт електропроводки",
+      "Перевірка системи живлення"
+    ]
+  },
+  {
+    "id": "1736592813648",
+    "fullname": "Олексій Шевченко",
+    "email": "oleksiy.shevchenko@gmail.com",
+    "password": "shevchenkooleksiy",
+    "phone": "+380671234567",
+    "district": "Корольовський (Житомир)",
+    "nickname": "МайстерШевченко",
+    "type": "master",
+    "services": [
+      "Заміна ременя",
+      "Ремонт вихлопної системи",
+      "Ремонт підшипників"
+    ]
+  },
+  {
+    "id": "1736653928473",
+    "fullname": "Сергій Ткаченко",
+    "email": "sergiy.tkachenko@gmail.com",
+    "password": "sergiytkachenko",
+    "phone": "+380671234512",
+    "district": "Богунський (Житомир)",
+    "nickname": "МайстерСергій",
+    "type": "master",
+    "services": [
+      "Перевірка системи охолодження",
+      "Ремонт електродвигуна"
+    ]
+  },
+  {
+    "id": "1737402874943",
+    "fullname": "Чижевський Бутус Бутусович",
+    "email": "vovavlog0080@gmail.com",
+    "password": "213",
+    "phone": "+64666646464",
+    "district": "Корольовський(Житомир)",
+    "nickname": "354654",
+    "type": "master",
+    "services": []
   }
 ]

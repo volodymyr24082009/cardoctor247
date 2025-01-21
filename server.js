@@ -15,7 +15,7 @@ const APPLICATION_FILE = path.join(DATA_DIR, 'application.json');
 const MASTERS_FILE = path.join(DATA_DIR, 'masters.json');
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
 const ANALYTICS_FILE = path.join(DATA_DIR, 'analytics.json');
-const CURSOR_MOVEMENT_FILE = path.join(DATA_DIR, 'CursorMovement.json');
+
 
 // Create data directory if it doesn't exist
 async function ensureDataDir() {
@@ -88,7 +88,6 @@ async function readJsonFile(fileName) {
 async function writeJsonFile(fileName, data) {
   await fs.writeFile(fileName, JSON.stringify(data, null, 2), 'utf8');
 }
-
 async function sendEmailNotification(applicationData) {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -107,6 +106,8 @@ async function sendEmailNotification(applicationData) {
       Email: ${applicationData.email || 'Не вказано'}
       Телефон: ${applicationData.phone || 'Не вказано'}
       Проблема: ${applicationData.problem || 'Не вказано'}
+      Район: ${applicationData.district || 'Не вказано'}
+      Вулиця: ${applicationData.street || 'Не вказано'}
     `
   };
 
@@ -119,6 +120,10 @@ async function sendEmailNotification(applicationData) {
     return false;
   }
 }
+
+module.exports = { sendEmailNotification };
+
+
 
 async function logAndWriteJsonFile(fileName, data) {
   console.log(`Writing to ${fileName}:`, JSON.stringify(data, null, 2));
@@ -204,8 +209,7 @@ app.post('/register', async (req, res) => {
     });
   }
 });
-
-// Submit application route
+//Заявка(и)
 app.post('/api/submit-request', async (req, res) => {
   const applicationData = req.body;
 
@@ -305,21 +309,6 @@ app.post('/api/save-analytics', async (req, res) => {
   }
 });
 
-// Save cursor movement data
-app.post('/api/save-cursor-movement', async (req, res) => {
-  const cursorData = req.body;
-
-  try {
-    let cursorMovements = await readJsonFile(CURSOR_MOVEMENT_FILE);
-    cursorMovements = cursorMovements.concat(cursorData);
-    await writeJsonFile(CURSOR_MOVEMENT_FILE, cursorMovements);
-
-    res.status(200).json({ message: 'Дані про рух курсора збережено' });
-  } catch (error) {
-    console.error('Помилка при збереженні даних про рух курсора:', error);
-    res.status(500).json({ error: 'Помилка сервера при збереженні даних про рух курсора' });
-  }
-});
 
 // Handle avatar upload
 app.post('/api/user/:id/avatar', async (req, res) => {
@@ -557,7 +546,7 @@ async function startServer() {
       MASTERS_FILE,
       USERS_FILE,
       ANALYTICS_FILE,
-      CURSOR_MOVEMENT_FILE
+      
     ].map(initializeFile));
 
     app.listen(port, () => {

@@ -20,12 +20,12 @@
     "id": "1735565133586"
   },
   {
-    "fullname": "255252",
-    "email": "vovavlog0080@gmail.com",
-    "password": "525",
-    "phone": "252",
+    "fullname": "Володимир Чижевський",
+    "email": "vova0080@gmail.com",
+    "password": "123456789",
+    "phone": "0965383239",
     "district": "Корольовський",
-    "nickname": "252525",
+    "nickname": "Вова",
     "type": "user",
     "id": "1735570857607"
   },
@@ -500,6 +500,50 @@
     "phone": "+380965383239",
     "district": "Корольовський(Житомир)",
     "nickname": "Катерина ",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1736685781842",
+    "fullname": "Чижевський Володимир Володимирович",
+    "email": "fvvf22vf@gmail.com",
+    "password": "х",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "х",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1736688912217",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vovavlog008011@gmail.com",
+    "password": "1",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "1",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1736698691490",
+    "fullname": "Чижевська Катерина Сергіївна",
+    "email": "vovavlog008110@gmail.com",
+    "password": "111",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "111",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1736953167123",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "volodymy22r240809@gmail.com",
+    "password": "122",
+    "phone": "+380965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "122",
     "type": "user",
     "services": []
   }
