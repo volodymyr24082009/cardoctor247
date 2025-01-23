@@ -154,5 +154,19 @@
     "nickname": "354654",
     "type": "master",
     "services": []
+  },
+  {
+    "id": "1737626281549",
+    "fullname": "Бабич Сергій Сергійович",
+    "email": "24g_5chv1v@liceum.ztu.edu.ua",
+    "password": "5",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "5",
+    "type": "master",
+    "services": [
+      "Діагностика двигуна",
+      "Ремонт трансмісії"
+    ]
   }
 ]

@@ -546,5 +546,16 @@
     "nickname": "122",
     "type": "user",
     "services": []
+  },
+  {
+    "id": "1737626170909",
+    "fullname": "Чижевський Володимир Володимирович",
+    "email": "vvv@gmail.com",
+    "password": "м",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "м",
+    "type": "user",
+    "services": []
   }
 ]
