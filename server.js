@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const geoip = require('geoip-lite');
 const app = express();
-const port = 3001;
+const PORT = process.env.PORT || 3000;
 
 require('dotenv').config();
 
@@ -549,8 +549,8 @@ async function startServer() {
       
     ].map(initializeFile));
 
-    app.listen(port, () => {
-      console.log(`Сервер запущено на http://localhost:${port}`);
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
     });
   } catch (error) {
     console.error('Не вдалося запустити сервер:', error);

@@ -13,7 +13,121 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
   width: 100%;
 }
+/* Additional responsive styles */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  .modal-content {
+    max-width: 90%;
+  }
+}
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 15px;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  
+  .container {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 15px;
+  }
+  
+  .modal-content {
+    padding: 15px;
+  }
+  
+  .modal-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+  
+  .sidebar-button {
+    top: 5px;
+    left: 5px;
+  }
+  
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="file"], select {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  h6 {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 10px;
+  }
+  
+  .modal-content {
+    padding: 10px;
+  }
+  
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="file"], select {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Improve readability on larger screens */
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+  
+  .container {
+    max-width: 1000px;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+  
+  h6 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Ensure background image covers screen on all devices */
+@media (orientation: landscape) and (max-height: 500px) {
+  body {
+    background-attachment: scroll;
+  }
+}
 /* Remove any potential wrapper styles that might cause duplication */
 html, body {
   width: 100%;
@@ -264,28 +378,7 @@ body::before {
     color: #444;
   }
   
-  /* Адаптивний дизайн */
-  @media (max-width: 600px) {
-    .modal-content {
-      width: 100%;
-      max-width: 90%; /* Зменшення ширини на мобільних */
-      padding: 15px;
-    }
-  
-    .modal-button {
-      padding: 15px 30px;
-      font-size: 14px;
-    }
-  
-    #registrationForm {
-      padding: 20px;
-    }
-  
-    input[type="text"], input[type="password"], input[type="email"] {
-      padding: 12px;
-    }
-  }
-  
+
   .sidebar {
     transition: transform 0.3s ease; /* Smooth opening and closing */
     transform: translateX(-100%);
@@ -562,8 +655,4 @@ h6 {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тінь для тексту */
   border-bottom: 2px solid #8E2DE2; /* Нижня рамка для акценту */
 }
-@media (max-width: 600px) {
-  body {
-    background-size: cover; /* Ensure the background image fits well */
-  }
-}
+
