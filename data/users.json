@@ -70,12 +70,12 @@
     "id": "1735587313841"
   },
   {
-    "fullname": "Чижевський Сергій Бутусович",
-    "email": "24g_chvv@liceum.ztu.edu.ua",
+    "fullname": "Коваль Сергій Володимирович",
+    "email": "kovalserhiy@liceum.ztu.edu.ua",
     "password": "21",
     "phone": "0965383239",
     "district": "Богунський(Житомир)",
-    "nickname": "Катерина ",
+    "nickname": "Сергій ",
     "type": "user",
     "id": "1735587439335"
   },
@@ -555,6 +555,39 @@
     "phone": "+380965383239",
     "district": "Корольовський(Житомир)",
     "nickname": "м",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1737804534368",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vovavlog008789080@gmail.com",
+    "password": "C240809v",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "00",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1738495086132",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vovavlog00780191@gmail.com",
+    "password": "3195609",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "9",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1738496353273",
+    "fullname": "Чижевский Володимир Володимирович",
+    "email": "vovavlog0078019551@gmail.com",
+    "password": "3195609к",
+    "phone": "+380965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "к",
     "type": "user",
     "services": []
   }

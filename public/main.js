@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Створюємо список послуг майстра
           const servicesList = master.services
             ? master.services.map((service) => `<li>${service}</li>`).join("")
-            : '';
+            : "";
 
           // Наповнюємо картку майстра інформацією
           masterCard.innerHTML = `
@@ -82,10 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
               master.phone || "Не вказано"
             }</p>
             <p><strong>Район:</strong> ${master.district}</p>
-            ${master.services ? `
+            ${
+              master.services
+                ? `
               <p><strong>Послуги:</strong></p>
               <ul>${servicesList}</ul>
-            ` : ''}
+            `
+                : ""
+            }
           `;
 
           // Додаємо картку в контейнер
@@ -98,18 +102,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-//Nodemailer
+  //Nodemailer
   if (contactForm) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-  
+
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
-  
+
       // Ensure district and street are included
-      data.district = document.getElementById('district').value;
-      data.street = document.getElementById('street').value;
-  
+      data.district = document.getElementById("district").value;
+      data.street = document.getElementById("street").value;
+
       try {
         const response = await fetch("/api/submit-request", {
           method: "POST",
@@ -118,9 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           body: JSON.stringify(data),
         });
-  
+
         const result = await response.json();
-  
+
         if (response.ok) {
           alert(result.message + " Ми зв'яжемося з вами протягом 15 хвилин.");
           contactForm.reset();
@@ -135,8 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  
-  
 
   // **Мобільна навігація**
   if (burger && navLinks) {
@@ -196,11 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
           masterElement.className = "master-card";
           masterElement.innerHTML = `
             <h3>${master.fullname}</h3>
-            <p>Телефон: ${master.phone || 'Не вказано'}</p>
+            <p>Телефон: ${master.phone || "Не вказано"}</p>
             <p>Район: ${master.district}</p>
             <p>Послуги:</p>
             <ul>
-              ${master.services.map(service => `<li>${service}</li>`).join('')}
+              ${master.services
+                .map((service) => `<li>${service}</li>`)
+                .join("")}
             </ul>
           `;
           mastersContainerMainPage.appendChild(masterElement);
@@ -295,8 +299,6 @@ window.onload = function () {
 };
 let userActions = []; // Масив для зберігання рухів і взаємодій користувача
 
-
-
 // Функція для відправки зібраних даних на сервер
 function sendUserActionsToServer() {
   fetch("/api/track-actions", {
@@ -314,7 +316,6 @@ function sendUserActionsToServer() {
 // Відправляти дані на сервер кожні 30 секунд
 setInterval(sendUserActionsToServer, 30000);
 // Функція для отримання даних з сервера
-
 
 // Завантаження та візуалізація даних
 async function loadAndVisualize() {
@@ -397,10 +398,3 @@ async function fetchApplications() {
 
 // Виклик функції для завантаження заявок
 fetchApplications();
-
-
-
-
-
-
-
