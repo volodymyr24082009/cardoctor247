@@ -590,5 +590,50 @@
     "nickname": "к",
     "type": "user",
     "services": []
+  },
+  {
+    "id": "1748288021643",
+    "fullname": "Володимир",
+    "email": "vova2408094@ukr.net",
+    "password": "C240809v",
+    "phone": "0965383239",
+    "district": "Корольовський(Житомир)",
+    "nickname": "Vova",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1748342916895",
+    "fullname": "Володимир",
+    "email": "vova24080954@ukr.net",
+    "password": "C240809v",
+    "phone": "0965383239",
+    "district": "Богунський(Житомир)",
+    "nickname": "1",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1748352277367",
+    "fullname": "1",
+    "email": "vova240810954@ukr.net",
+    "password": "C240809v",
+    "phone": "1",
+    "district": "Богунський(Житомир)",
+    "nickname": "1",
+    "type": "user",
+    "services": []
+  },
+  {
+    "id": "1748352941868",
+    "fullname": "1",
+    "email": "1@gmail.com",
+    "password": "3",
+    "phone": "1",
+    "district": "Богунський(Житомир)",
+    "nickname": "3",
+    "type": "user",
+    "services": [],
+    "createdAt": "2025-05-27T13:35:41.868Z"
   }
 ]

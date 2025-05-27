@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoClearance Pro - Розрахунок вартості розмитнення авто</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="CalculatingClearance.css" />
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="background-wrapper">
+      <div class="gradient-bg"></div>
+      <div class="floating-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+      </div>
+      <div class="grid-pattern"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="nav-brand">
+            <div class="logo-container">
+              <div class="logo-icon">
+                <i class="fas fa-car-side"></i>
+              </div>
+              <div class="logo-text">
+                <h1>AutoClearance</h1>
+                <span class="logo-subtitle">Pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="nav-actions">
+            <button class="home-btn" onclick="goToHome()">
+              <i class="fas fa-home"></i>
+              <span>На головну</span>
+            </button>
+          </div>
+        </nav>
+        <div class="hero-section">
+          <h2 class="hero-title">Калькулятор розмитнення автомобіля</h2>
+          <p class="hero-subtitle">
+            Швидкий та точний розрахунок вартості з актуальним курсом НБУ
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Exchange Rate Widget -->
+        <div class="exchange-widget">
+          <div class="exchange-content">
+            <div class="exchange-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="exchange-info">
+              <span class="exchange-label">Курс USD/UAH</span>
+              <div class="exchange-rate">
+                <span id="usdRate" class="rate-value">Завантаження...</span>
+                <button
+                  id="refreshRate"
+                  class="refresh-btn"
+                  title="Оновити курс"
+                >
+                  <i class="fas fa-sync-alt"></i>
+                </button>
+              </div>
+            </div>
+            <div class="exchange-status">
+              <span class="status-indicator"></span>
+              <span class="status-text">НБУ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator Section -->
+        <div class="calculator-section">
+          <div class="calculator-grid">
+            <!-- Input Form -->
+            <div class="calculator-card input-card">
+              <div class="card-header">
+                <div class="header-icon">
+                  <i class="fas fa-calculator"></i>
+                </div>
+                <div class="header-content">
+                  <h3>Дані автомобіля</h3>
+                  <p>Введіть характеристики вашого авто</p>
+                </div>
+              </div>
+
+              <form id="clearanceForm" class="calculator-form">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="country" class="form-label">
+                      <i class="fas fa-globe-europe"></i>
+                      Країна імпорту
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="country" name="country" required>
+                        <option value="">Оберіть країну</option>
+                        <option value="germany">🇩🇪 Німеччина</option>
+                        <option value="usa">🇺🇸 США</option>
+                        <option value="japan">🇯🇵 Японія</option>
+                        <option value="poland">🇵🇱 Польща</option>
+                        <option value="france">🇫🇷 Франція</option>
+                        <option value="italy">🇮🇹 Італія</option>
+                        <option value="other">🌍 Інша країна</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="engineType" class="form-label">
+                      <i class="fas fa-cog"></i>
+                      Тип двигуна
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="engineType" name="engineType" required>
+                        <option value="">Оберіть тип</option>
+                        <option value="petrol">⛽ Бензин</option>
+                        <option value="diesel">🛢️ Дизель</option>
+                        <option value="hybrid">🔋 Гібрид</option>
+                        <option value="electric">⚡ Електро</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="engineVolume" class="form-label">
+                      <i class="fas fa-tachometer-alt"></i>
+                      Об'єм двигуна (л)
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="engineVolume"
+                        name="engineVolume"
+                        step="0.1"
+                        min="0.1"
+                        max="10"
+                        placeholder="2.0"
+                        required
+                      />
+                      <span class="input-unit">л</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="year" class="form-label">
+                      <i class="fas fa-calendar-alt"></i>
+                      Рік випуску
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="year"
+                        name="year"
+                        min="1990"
+                        max="2024"
+                        placeholder="2020"
+                        required
+                      />
+                      <span class="input-unit">рік</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="carValue" class="form-label">
+                      <i class="fas fa-dollar-sign"></i>
+                      Вартість авто
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="carValue"
+                        name="carValue"
+                        min="1000"
+                        placeholder="15000"
+                        required
+                      />
+                      <span class="input-unit">USD</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="carType" class="form-label">
+                      <i class="fas fa-car"></i>
+                      Тип кузова
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="carType" name="carType" required>
+                        <option value="">Оберіть тип</option>
+                        <option value="sedan">🚗 Седан</option>
+                        <option value="hatchback">🚙 Хетчбек</option>
+                        <option value="suv">🚐 Позашляховик</option>
+                        <option value="wagon">🚛 Універсал</option>
+                        <option value="coupe">🏎️ Купе</option>
+                        <option value="convertible">🏁 Кабріолет</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">
+                  <span class="btn-content">
+                    <i class="fas fa-calculator"></i>
+                    <span class="btn-text">Розрахувати вартість</span>
+                  </span>
+                  <div class="btn-glow"></div>
+                  <div class="btn-ripple"></div>
+                </button>
+              </form>
+            </div>
+
+            <!-- Results Card -->
+            <div class="calculator-card result-card">
+              <div class="card-header">
+                <div class="header-icon">
+                  <i class="fas fa-receipt"></i>
+                </div>
+                <div class="header-content">
+                  <h3>Результат розрахунку</h3>
+                  <p>Детальний розрахунок всіх платежів</p>
+                </div>
+              </div>
+
+              <div id="result" class="result-section hidden">
+                <div class="result-grid">
+                  <div class="result-item">
+                    <div class="result-icon">
+                      <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="result-content">
+                      <span class="result-label">Митний збір</span>
+                      <span class="result-value" id="customsFee">0 ₴</span>
+                    </div>
+                  </div>
+
+                  <div class="result-item">
+                    <div class="result-icon">
+                      <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <div class="result-content">
+                      <span class="result-label">Акцизний збір</span>
+                      <span class="result-value" id="exciseTax">0 ₴</span>
+                    </div>
+                  </div>
+
+                  <div class="result-item">
+                    <div class="result-icon">
+                      <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="result-content">
+                      <span class="result-label">ПДВ (20%)</span>
+                      <span class="result-value" id="vat">0 ₴</span>
+                    </div>
+                  </div>
+
+                  <div class="result-item">
+                    <div class="result-icon">
+                      <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="result-content">
+                      <span class="result-label">Пенсійний збір</span>
+                      <span class="result-value" id="pensionFee">0 ₴</span>
+                    </div>
+                  </div>
+
+                  <div class="result-item total-item">
+                    <div class="result-icon">
+                      <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="result-content">
+                      <span class="result-label">Загальна сума</span>
+                      <span class="result-value total-value" id="totalAmount"
+                        >0 ₴</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="result-note">
+                  <div class="note-icon">
+                    <i class="fas fa-info-circle"></i>
+                  </div>
+                  <div class="note-content">
+                    <p>
+                      <strong>Важливо:</strong> Розрахунок є приблизним і
+                      базується на актуальних тарифах. Точну суму уточнюйте в
+                      митній службі України.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="placeholder" class="result-placeholder">
+                <div class="placeholder-icon">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <h4>Очікування розрахунку</h4>
+                <p>
+                  Заповніть форму та натисніть "Розрахувати", щоб побачити
+                  детальний розрахунок вартості розмитнення
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-shield-check"></i>
+              </div>
+              <h4>Безпечно</h4>
+              <p>
+                Всі розрахунки виконуються локально у вашому браузері без
+                передачі даних
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h4>Швидко</h4>
+              <p>
+                Миттєвий розрахунок з актуальним курсом валют від Національного
+                банку України
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h4>Точно</h4>
+              <p>
+                Розрахунки базуються на офіційних тарифах та враховують всі
+                необхідні коефіцієнти
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h4>Зручно</h4>
+              <p>
+                Адаптивний дизайн працює на всіх пристроях - від смартфона до
+                комп'ютера
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo-container">
+              <div class="logo-icon">
+                <i class="fas fa-car-side"></i>
+              </div>
+              <div class="logo-text">
+                <h3>AutoClearance Pro</h3>
+              </div>
+            </div>
+            <p>Професійний калькулятор розмитнення автомобілів</p>
+          </div>
+          <div class="footer-info">
+            <p>&copy; 2024 AutoClearance Pro. Всі права захищені.</p>
+            <p>Дані курсу валют надаються Національним банком України</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="CalculatingClearance.js"></script>
+  </body>
+</html>

@@ -3,33 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор витрат палива</title>
+    <title>Fuel Calculator Pro - Анімований</title>
     <link rel="stylesheet" href="./CalculationofFuelConsumption.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#6366f1">
 </head>
 <body>
-    <a href="../public/index.html" class="home-button">На головну</a>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+        <div class="bg-shape shape-5"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles-container"></div>
+
+    <!-- Browser Frame -->
+    <div class="browser-frame">
+        <div class="browser-controls">
+            <div class="control-btn close"></div>
+            <div class="control-btn minimize"></div>
+            <div class="control-btn maximize"></div>
+        </div>
+        <div class="browser-url">
+            <span>🔒 fuel-calculator-pro.com</span>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Перемкнути тему">
+        <div class="toggle-track">
+            <div class="toggle-thumb">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </div>
+        </div>
+    </button>
+
+    <!-- Home Button -->
+    <a href="../public/index.html" class="home-button">
+        <div class="btn-bg"></div>
+        <span class="home-icon">🏠</span>
+        <span class="btn-text">На головну</span>
+        <div class="btn-ripple"></div>
+    </a>
+
+    <!-- Main Container -->
     <div class="container">
-        <div class="calculator">
-            <h2>Калькулятор витрат палива</h2>
-            <div class="input-group">
-                <label for="distance">Відстань (км)</label>
-                <input type="number" id="distance" placeholder="Введіть відстань">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="fuel-icon">
+                    <div class="icon-inner">⛽</div>
+                    <div class="icon-glow"></div>
+                </div>
+                <div class="title-wrapper">
+                    <h1>Fuel Calculator Pro</h1>
+                    <div class="title-underline"></div>
+                </div>
             </div>
-            <div class="input-group">
-                <label for="price">Ціна палива (за літр)</label>
-                <input type="number" id="price" placeholder="Введіть ціну палива">
+            <p class="subtitle">
+                <span class="subtitle-text">Розумний розрахунок витрат на паливо</span>
+                <div class="subtitle-cursor"></div>
+            </p>
+        </header>
+
+        <!-- Calculator Card -->
+        <div class="calculator-card">
+            <div class="card-glow"></div>
+            <div class="calculator-header">
+                <h2>
+                    <span class="header-icon">🧮</span>
+                    Калькулятор витрат
+                </h2>
+                <div class="calculator-tabs">
+                    <button class="tab-btn active" data-tab="basic">
+                        <span class="tab-icon">📊</span>
+                        Базовий
+                        <div class="tab-indicator"></div>
+                    </button>
+                    <button class="tab-btn" data-tab="advanced">
+                        <span class="tab-icon">⚙️</span>
+                        Розширений
+                        <div class="tab-indicator"></div>
+                    </button>
+                </div>
             </div>
-            <div class="input-group">
-                <label for="consumption">Споживання (л/100км)</label>
-                <input type="number" id="consumption" placeholder="Введіть споживання">
+
+            <!-- Basic Calculator -->
+            <div id="basic-tab" class="tab-content active">
+                <form id="fuel-form" class="calculator-form">
+                    <div class="form-section">
+                        <div class="section-title">
+                            <span class="section-icon">📍</span>
+                            Основні параметри
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="distance">
+                                <span class="icon">📏</span>
+                                <span class="label-text">Відстань поїздки</span>
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="distance" placeholder="Введіть відстань" step="0.1" min="0">
+                                <span class="unit">км</span>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="input-hint">
+                                <span class="hint-icon">💡</span>
+                                Загальна відстань, яку ви плануєте проїхати
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="price">
+                                <span class="icon">💰</span>
+                                <span class="label-text">Ціна палива</span>
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="price" placeholder="Поточна ціна" step="0.01" min="0">
+                                <span class="unit">грн/л</span>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="input-hint">
+                                <span class="hint-icon">⛽</span>
+                                Актуальна ціна палива на заправці
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="consumption">
+                                <span class="icon">⚡</span>
+                                <span class="label-text">Споживання палива</span>
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="consumption" placeholder="Витрата авто" step="0.1" min="0">
+                                <span class="unit">л/100км</span>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            <div class="input-hint">
+                                <span class="hint-icon">🚗</span>
+                                Середнє споживання вашого автомобіля
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <div class="auto-calculate">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="auto-calc" checked>
+                                <span class="checkmark">
+                                    <div class="check-icon">✓</div>
+                                </span>
+                                <span class="checkbox-text">Автоматичний розрахунок при зміні</span>
+                            </label>
+                        </div>
+
+                        <button type="button" id="calculate" class="calculate-btn">
+                            <div class="btn-bg"></div>
+                            <span class="btn-icon">🚀</span>
+                            <span class="btn-text">Розрахувати вартість</span>
+                            <div class="btn-shine"></div>
+                            <div class="btn-ripple"></div>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <button id="calculate">Розрахувати</button>
-            <div id="result" class="hidden">
-                <p>Витрати на паливо: <span id="cost"></span> грн</p>
+
+            <!-- Advanced Calculator -->
+            <div id="advanced-tab" class="tab-content">
+                <form id="advanced-form" class="calculator-form">
+                    <div class="form-section">
+                        <div class="section-title">
+                            <span class="section-icon">🎯</span>
+                            Детальні параметри
+                        </div>
+                        
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="distance-adv">
+                                    <span class="icon">📏</span>
+                                    <span class="label-text">Відстань</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="distance-adv" placeholder="1000" step="0.1" min="0">
+                                    <span class="unit">км</span>
+                                    <div class="input-focus-line"></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="speed">
+                                    <span class="icon">🏎️</span>
+                                    <span class="label-text">Середня швидкість</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="speed" placeholder="90" step="1" min="1" value="90">
+                                    <span class="unit">км/год</span>
+                                    <div class="input-focus-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="price-adv">
+                                    <span class="icon">💰</span>
+                                    <span class="label-text">Ціна палива</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="price-adv" placeholder="54.50" step="0.01" min="0">
+                                    <span class="unit">грн/л</span>
+                                    <div class="input-focus-line"></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="consumption-adv">
+                                    <span class="icon">⚡</span>
+                                    <span class="label-text">Споживання</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="consumption-adv" placeholder="8.5" step="0.1" min="0">
+                                    <span class="unit">л/100км</span>
+                                    <div class="input-focus-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-row single">
+                            <div class="input-group">
+                                <label for="passengers">
+                                    <span class="icon">👥</span>
+                                    <span class="label-text">Кількість пасажирів</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="passengers" placeholder="1" step="1" min="1" max="8" value="1">
+                                    <span class="unit">осіб</span>
+                                    <div class="input-focus-line"></div>
+                                </div>
+                                <div class="input-hint">
+                                    <span class="hint-icon">👨‍👩‍👧‍👦</span>
+                                    Для розрахунку вартості на особу
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="calculate-adv" class="calculate-btn advanced">
+                            <div class="btn-bg"></div>
+                            <span class="btn-icon">📊</span>
+                            <span class="btn-text">Детальний розрахунок</span>
+                            <div class="btn-shine"></div>
+                            <div class="btn-ripple"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div id="result" class="result-card hidden">
+            <div class="card-glow"></div>
+            <div class="result-header">
+                <h3>
+                    <span class="header-icon">📈</span>
+                    Результати розрахунку
+                </h3>
+                <button id="save-result" class="save-btn" title="Зберегти результат">
+                    <span class="save-icon">💾</span>
+                    <div class="btn-ripple"></div>
+                </button>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-item primary">
+                    <div class="result-icon">
+                        <span>💰</span>
+                        <div class="icon-pulse"></div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">Загальна вартість поїздки</div>
+                        <div class="result-value" id="total-cost">
+                            <span class="value-number">0</span>
+                            <span class="value-currency">грн</span>
+                        </div>
+                    </div>
+                    <div class="result-decoration"></div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-icon">
+                        <span>⛽</span>
+                        <div class="icon-pulse"></div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">Витрата палива</div>
+                        <div class="result-value" id="fuel-needed">
+                            <span class="value-number">0</span>
+                            <span class="value-unit">л</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-item" id="time-result">
+                    <div class="result-icon">
+                        <span>⏱️</span>
+                        <div class="icon-pulse"></div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">Час поїздки</div>
+                        <div class="result-value" id="travel-time">
+                            <span class="value-number">0</span>
+                            <span class="value-unit">год</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-item" id="per-person-result">
+                    <div class="result-icon">
+                        <span>👤</span>
+                        <div class="icon-pulse"></div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">Вартість на особу</div>
+                        <div class="result-value" id="cost-per-person">
+                            <span class="value-number">0</span>
+                            <span class="value-currency">грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-icon">
+                        <span>🌱</span>
+                        <div class="icon-pulse"></div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">CO₂ викиди</div>
+                        <div class="result-value" id="co2-emissions">
+                            <span class="value-number">0</span>
+                            <span class="value-unit">кг</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-icon">
+                        <span>📊</span>
+                        <div class="icon-pulse"></div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-label">Ефективність</div>
+                        <div class="result-value" id="efficiency">
+                            <span class="value-number">0</span>
+                            <span class="value-unit">грн/км</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-icon">🎯</span>
+                    <span class="progress-label">Економічність поїздки</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="efficiency-progress">
+                        <div class="progress-shine"></div>
+                    </div>
+                    <div class="progress-markers">
+                        <div class="marker" style="left: 20%"></div>
+                        <div class="marker" style="left: 40%"></div>
+                        <div class="marker" style="left: 60%"></div>
+                        <div class="marker" style="left: 80%"></div>
+                    </div>
+                </div>
+                <div class="progress-text" id="efficiency-text">Розраховується...</div>
+            </div>
+        </div>
+
+        <!-- History -->
+        <div class="history-section">
+            <div class="card-glow"></div>
+            <div class="history-header">
+                <h3>
+                    <span class="header-icon">📚</span>
+                    Історія розрахунків
+                </h3>
+                <button id="clear-history" class="clear-btn">
+                    <span class="clear-icon">🗑️</span>
+                    <span class="clear-text">Очистити</span>
+                    <div class="btn-ripple"></div>
+                </button>
+            </div>
+            <div id="history-list" class="history-list">
+                <div class="history-empty">
+                    <div class="empty-animation">
+                        <span class="empty-icon">📝</span>
+                        <div class="empty-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                    <p>Історія розрахунків порожня</p>
+                    <span class="empty-hint">Виконайте перший розрахунок, щоб побачити історію</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <div class="card-glow"></div>
+            <h3>
+                <span class="tips-icon">💡</span>
+                Поради для економії палива
+            </h3>
+            <div class="tips-grid">
+                <div class="tip-card" data-tip="1">
+                    <div class="tip-number">01</div>
+                    <div class="tip-icon">🚗</div>
+                    <div class="tip-content">
+                        <h4>Плавне водіння</h4>
+                        <p>Уникайте різких прискорень та гальмувань. Це може зменшити споживання палива на 10-15%.</p>
+                    </div>
+                    <div class="tip-decoration"></div>
+                </div>
+                <div class="tip-card" data-tip="2">
+                    <div class="tip-number">02</div>
+                    <div class="tip-icon">🛣️</div>
+                    <div class="tip-content">
+                        <h4>Оптимальна швидкість</h4>
+                        <p>Дотримуйтесь швидкості 80-90 км/год на трасі для найкращої економії палива.</p>
+                    </div>
+                    <div class="tip-decoration"></div>
+                </div>
+                <div class="tip-card" data-tip="3">
+                    <div class="tip-number">03</div>
+                    <div class="tip-icon">🔧</div>
+                    <div class="tip-content">
+                        <h4>Технічний стан</h4>
+                        <p>Регулярно перевіряйте тиск у шинах та проводьте технічне обслуговування.</p>
+                    </div>
+                    <div class="tip-decoration"></div>
+                </div>
+                <div class="tip-card" data-tip="4">
+                    <div class="tip-number">04</div>
+                    <div class="tip-icon">❄️</div>
+                    <div class="tip-content">
+                        <h4>Кондиціонер</h4>
+                        <p>Використовуйте кондиціонер розумно. На швидкості понад 80 км/год він економніший за відкриті вікна.</p>
+                    </div>
+                    <div class="tip-decoration"></div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loading-text">Розраховуємо вашу поїздку...</p>
+            <div class="loading-progress">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="./CalculationofFuelConsumption.js"></script>
 </body>
 </html>
