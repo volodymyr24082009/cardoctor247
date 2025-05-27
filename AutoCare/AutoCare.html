@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoCare Pro - Планувальник технічного обслуговування</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./AutoCare.css" />
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="background-wrapper">
+      <div class="gradient-bg"></div>
+      <div class="floating-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+      </div>
+      <div class="grid-pattern"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="nav-brand">
+            <div class="logo-container">
+              <div class="logo-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="logo-text">
+                <h1>AutoCare</h1>
+                <span class="logo-subtitle">Pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="nav-actions">
+            <button class="home-btn" onclick="goToHome()">
+              <i class="fas fa-home"></i>
+              <span>На головну</span>
+            </button>
+            <button class="calculator-btn" onclick="goToCalculator()">
+              <i class="fas fa-calculator"></i>
+              <span>Калькулятор</span>
+            </button>
+          </div>
+        </nav>
+        <div class="hero-section">
+          <h2 class="hero-title">Планувальник технічного обслуговування</h2>
+          <p class="hero-subtitle">
+            Персональний помічник для догляду за вашим автомобілем
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Car Info Widget -->
+        <div class="car-info-widget">
+          <div class="widget-content">
+            <div class="widget-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="widget-info">
+              <h3>Ваш автомобіль</h3>
+              <p id="carDisplay">Оберіть марку та модель</p>
+            </div>
+            <div class="widget-status">
+              <div class="status-indicator" id="carStatus"></div>
+              <span class="status-text" id="statusText">Очікування</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+          <!-- Input Form -->
+          <div class="maintenance-card input-card">
+            <div class="card-header">
+              <div class="header-icon">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+              <div class="header-content">
+                <h3>Дані автомобіля</h3>
+                <p>Введіть інформацію про ваш автомобіль</p>
+              </div>
+            </div>
+
+            <form id="maintenanceForm" class="maintenance-form">
+              <div class="form-section">
+                <h4 class="section-title">
+                  <i class="fas fa-car-side"></i>
+                  Основна інформація
+                </h4>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="carBrand" class="form-label">
+                      <i class="fas fa-industry"></i>
+                      Марка автомобіля
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="carBrand" name="carBrand" required>
+                        <option value="">Оберіть марку</option>
+                        <!-- Японські марки -->
+                        <option value="toyota">🇯🇵 Toyota</option>
+                        <option value="honda">🇯🇵 Honda</option>
+                        <option value="nissan">🇯🇵 Nissan</option>
+                        <option value="mazda">🇯🇵 Mazda</option>
+                        <option value="subaru">🇯🇵 Subaru</option>
+                        <option value="mitsubishi">🇯🇵 Mitsubishi</option>
+                        <option value="lexus">🇯🇵 Lexus</option>
+                        <option value="acura">🇯🇵 Acura</option>
+                        <option value="infiniti">🇯🇵 Infiniti</option>
+                        <option value="suzuki">🇯🇵 Suzuki</option>
+                        <option value="isuzu">🇯🇵 Isuzu</option>
+                        <!-- Німецькі марки -->
+                        <option value="volkswagen">🇩🇪 Volkswagen</option>
+                        <option value="bmw">🇩🇪 BMW</option>
+                        <option value="mercedes">🇩🇪 Mercedes-Benz</option>
+                        <option value="audi">🇩🇪 Audi</option>
+                        <option value="porsche">🇩🇪 Porsche</option>
+                        <option value="opel">🇩🇪 Opel</option>
+                        <option value="mini">🇩🇪 MINI</option>
+                        <option value="smart">🇩🇪 Smart</option>
+                        <!-- Корейські марки -->
+                        <option value="hyundai">🇰🇷 Hyundai</option>
+                        <option value="kia">🇰🇷 Kia</option>
+                        <option value="genesis">🇰🇷 Genesis</option>
+                        <option value="daewoo">🇰🇷 Daewoo</option>
+                        <option value="ssangyong">🇰🇷 SsangYong</option>
+                        <!-- Американські марки -->
+                        <option value="ford">🇺🇸 Ford</option>
+                        <option value="chevrolet">🇺🇸 Chevrolet</option>
+                        <option value="cadillac">🇺🇸 Cadillac</option>
+                        <option value="buick">🇺🇸 Buick</option>
+                        <option value="gmc">🇺🇸 GMC</option>
+                        <option value="lincoln">🇺🇸 Lincoln</option>
+                        <option value="chrysler">🇺🇸 Chrysler</option>
+                        <option value="dodge">🇺🇸 Dodge</option>
+                        <option value="jeep">🇺🇸 Jeep</option>
+                        <option value="ram">🇺🇸 RAM</option>
+                        <option value="tesla">🇺🇸 Tesla</option>
+                        <!-- Французькі марки -->
+                        <option value="renault">🇫🇷 Renault</option>
+                        <option value="peugeot">🇫🇷 Peugeot</option>
+                        <option value="citroen">🇫🇷 Citroën</option>
+                        <option value="dacia">🇫🇷 Dacia</option>
+                        <option value="ds">🇫🇷 DS</option>
+                        <!-- Чеські марки -->
+                        <option value="skoda">🇨🇿 Škoda</option>
+                        <!-- Італійські марки -->
+                        <option value="fiat">🇮🇹 Fiat</option>
+                        <option value="alfa">🇮🇹 Alfa Romeo</option>
+                        <option value="lancia">🇮🇹 Lancia</option>
+                        <option value="ferrari">🇮🇹 Ferrari</option>
+                        <option value="lamborghini">🇮🇹 Lamborghini</option>
+                        <option value="maserati">🇮🇹 Maserati</option>
+                        <!-- Британські марки -->
+                        <option value="land_rover">🇬🇧 Land Rover</option>
+                        <option value="jaguar">🇬🇧 Jaguar</option>
+                        <option value="bentley">🇬🇧 Bentley</option>
+                        <option value="rolls_royce">🇬🇧 Rolls-Royce</option>
+                        <option value="aston_martin">🇬🇧 Aston Martin</option>
+                        <option value="mclaren">🇬🇧 McLaren</option>
+                        <!-- Шведські марки -->
+                        <option value="volvo">🇸🇪 Volvo</option>
+                        <option value="saab">🇸🇪 Saab</option>
+                        <!-- Китайські марки -->
+                        <option value="geely">🇨🇳 Geely</option>
+                        <option value="chery">🇨🇳 Chery</option>
+                        <option value="great_wall">🇨🇳 Great Wall</option>
+                        <option value="byd">🇨🇳 BYD</option>
+                        <option value="nio">🇨🇳 NIO</option>
+                        <option value="xpeng">🇨🇳 XPeng</option>
+                        <option value="li_auto">🇨🇳 Li Auto</option>
+                        <!-- Інші марки -->
+                        <option value="lada">🇷🇺 Lada</option>
+                        <option value="uaz">🇷🇺 UAZ</option>
+                        <option value="gaz">🇷🇺 GAZ</option>
+                        <option value="zaz">🇺🇦 ZAZ</option>
+                        <option value="bogdan">🇺🇦 Bogdan</option>
+                        <option value="other">🌍 Інша марка</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="carModel" class="form-label">
+                      <i class="fas fa-tag"></i>
+                      Модель
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="text"
+                        id="carModel"
+                        name="carModel"
+                        placeholder="Наприклад: Camry, Golf, X5"
+                        required
+                      />
+                      <i class="fas fa-car input-icon"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="carYear" class="form-label">
+                      <i class="fas fa-calendar-alt"></i>
+                      Рік випуску
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="carYear"
+                        name="carYear"
+                        min="1990"
+                        max="2025"
+                        placeholder="2020"
+                        required
+                      />
+                      <span class="input-unit">рік</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="engineType" class="form-label">
+                      <i class="fas fa-cog"></i>
+                      Тип двигуна
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="engineType" name="engineType" required>
+                        <option value="">Оберіть тип</option>
+                        <option value="petrol">⛽ Бензин</option>
+                        <option value="diesel">🛢️ Дизель</option>
+                        <option value="hybrid">🔋 Гібрид</option>
+                        <option value="electric">⚡ Електро</option>
+                        <option value="lpg">⛽ ГБО</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4 class="section-title">
+                  <i class="fas fa-tachometer-alt"></i>
+                  Пробіг та експлуатація
+                </h4>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="currentMileage" class="form-label">
+                      <i class="fas fa-road"></i>
+                      Поточний пробіг
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="currentMileage"
+                        name="currentMileage"
+                        min="0"
+                        placeholder="150000"
+                        required
+                      />
+                      <span class="input-unit">км</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastService" class="form-label">
+                      <i class="fas fa-wrench"></i>
+                      Останнє ТО (км)
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="lastService"
+                        name="lastService"
+                        min="0"
+                        placeholder="140000"
+                      />
+                      <span class="input-unit">км</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="drivingStyle" class="form-label">
+                      <i class="fas fa-steering-wheel"></i>
+                      Стиль водіння
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="drivingStyle" name="drivingStyle" required>
+                        <option value="">Оберіть стиль</option>
+                        <option value="calm">😌 Спокійний</option>
+                        <option value="normal">🚗 Звичайний</option>
+                        <option value="active">🏎️ Активний</option>
+                        <option value="aggressive">⚡ Агресивний</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="operatingConditions" class="form-label">
+                      <i class="fas fa-map-marked-alt"></i>
+                      Умови експлуатації
+                    </label>
+                    <div class="select-wrapper">
+                      <select
+                        id="operatingConditions"
+                        name="operatingConditions"
+                        required
+                      >
+                        <option value="">Оберіть умови</option>
+                        <option value="city">🏙️ Місто</option>
+                        <option value="highway">🛣️ Траса</option>
+                        <option value="mixed">🔄 Змішані</option>
+                        <option value="harsh">⚠️ Важкі умови</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="analyze-btn">
+                <span class="btn-content">
+                  <i class="fas fa-search"></i>
+                  <span class="btn-text">Проаналізувати стан</span>
+                </span>
+                <div class="btn-glow"></div>
+                <div class="btn-ripple"></div>
+              </button>
+            </form>
+          </div>
+
+          <!-- Results Section -->
+          <div class="maintenance-card results-card">
+            <div class="card-header">
+              <div class="header-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <div class="header-content">
+                <h3>План обслуговування</h3>
+                <p>Рекомендації для вашого автомобіля</p>
+              </div>
+            </div>
+
+            <div id="results" class="results-section hidden">
+              <!-- Urgent Tasks -->
+              <div class="tasks-category urgent-tasks">
+                <div class="category-header">
+                  <div class="category-icon urgent">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <div class="category-info">
+                    <h4>Термінові роботи</h4>
+                    <p>Потребують негайного виконання</p>
+                  </div>
+                  <div class="category-badge urgent">
+                    <span id="urgentCount">0</span>
+                  </div>
+                </div>
+                <div class="tasks-list" id="urgentTasks"></div>
+              </div>
+
+              <!-- Soon Tasks -->
+              <div class="tasks-category soon-tasks">
+                <div class="category-header">
+                  <div class="category-icon soon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="category-info">
+                    <h4>Найближчим часом</h4>
+                    <p>Рекомендується виконати протягом місяця</p>
+                  </div>
+                  <div class="category-badge soon">
+                    <span id="soonCount">0</span>
+                  </div>
+                </div>
+                <div class="tasks-list" id="soonTasks"></div>
+              </div>
+
+              <!-- Planned Tasks -->
+              <div class="tasks-category planned-tasks">
+                <div class="category-header">
+                  <div class="category-icon planned">
+                    <i class="fas fa-calendar-check"></i>
+                  </div>
+                  <div class="category-info">
+                    <h4>Планові роботи</h4>
+                    <p>Майбутні роботи згідно регламенту</p>
+                  </div>
+                  <div class="category-badge planned">
+                    <span id="plannedCount">0</span>
+                  </div>
+                </div>
+                <div class="tasks-list" id="plannedTasks"></div>
+              </div>
+
+              <!-- Summary -->
+              <div class="maintenance-summary">
+                <div class="summary-header">
+                  <h4>
+                    <i class="fas fa-chart-pie"></i>
+                    Загальна інформація
+                  </h4>
+                </div>
+                <div class="summary-grid">
+                  <div class="summary-item">
+                    <div class="summary-icon">
+                      <i class="fas fa-road"></i>
+                    </div>
+                    <div class="summary-content">
+                      <span class="summary-label">До наступного ТО</span>
+                      <span class="summary-value" id="nextServiceKm">- км</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon">
+                      <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="summary-content">
+                      <span class="summary-label">Орієнтовна вартість</span>
+                      <span class="summary-value" id="estimatedCost">- ₴</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="summary-content">
+                      <span class="summary-label">Стан автомобіля</span>
+                      <span class="summary-value" id="carCondition">-</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="resultsPlaceholder" class="results-placeholder">
+              <div class="placeholder-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h4>Очікування аналізу</h4>
+              <p>
+                Заповніть форму та натисніть "Проаналізувати стан", щоб отримати
+                персональний план технічного обслуговування
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+          <div class="tips-header">
+            <h3>
+              <i class="fas fa-lightbulb"></i>
+              Корисні поради
+            </h3>
+            <p>Як продовжити життя вашого автомобіля</p>
+          </div>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-oil-can"></i>
+              </div>
+              <h4>Моторна олива</h4>
+              <p>
+                Міняйте моторну оливу кожні 10-15 тис. км або раз на рік.
+                Використовуйте тільки рекомендовану виробником оливу.
+              </p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-tire"></i>
+              </div>
+              <h4>Шини</h4>
+              <p>
+                Перевіряйте тиск у шинах щомісяця. Правильний тиск покращує
+                керованість та знижує витрату палива.
+              </p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-battery"></i>
+              </div>
+              <h4>Акумулятор</h4>
+              <p>
+                Очищайте клеми акумулятора від окислення. Перевіряйте рівень
+                електроліту та заряд батареї.
+              </p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-snowflake"></i>
+              </div>
+              <h4>Охолодження</h4>
+              <p>
+                Перевіряйте рівень охолоджуючої рідини. Міняйте антифриз згідно
+                з рекомендаціями виробника.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo-container">
+              <div class="logo-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="logo-text">
+                <h3>AutoCare Pro</h3>
+              </div>
+            </div>
+            <p>Професійний планувальник технічного обслуговування</p>
+          </div>
+          <div class="footer-info">
+            <p>&copy; 2024 AutoCare Pro. Всі права захищені.</p>
+            <p>Рекомендації базуються на загальних стандартах обслуговування</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./AutoCare.js"></script>
+  </body>
+</html>

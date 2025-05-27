@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoCare Pro - Калькулятор зносу шин та гальмівних колодок</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./TireWear.css" />
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="background-wrapper">
+      <div class="gradient-bg"></div>
+      <div class="floating-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+      </div>
+      <div class="grid-pattern"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="nav-brand">
+            <div class="logo-container">
+              <div class="logo-icon">
+                <i class="fas fa-tire"></i>
+              </div>
+              <div class="logo-text">
+                <h1>AutoCare</h1>
+                <span class="logo-subtitle">Pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="nav-actions">
+            <button class="home-btn" onclick="goToHome()">
+              <i class="fas fa-home"></i>
+              <span>На головну</span>
+            </button>
+            <button class="maintenance-btn" onclick="goToMaintenance()">
+              <i class="fas fa-tools"></i>
+              <span>Планувальник ТО</span>
+            </button>
+          </div>
+        </nav>
+        <div class="hero-section">
+          <h2 class="hero-title">Калькулятор зносу шин та гальмівних колодок</h2>
+          <p class="hero-subtitle">
+            Визначте стан ваших шин та гальмівних колодок за товщиною або пробігом
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Status Widget -->
+        <div class="status-widget">
+          <div class="widget-content">
+            <div class="widget-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="widget-info">
+              <h3>Стан компонентів</h3>
+              <p id="statusDisplay">Оберіть тип перевірки</p>
+            </div>
+            <div class="widget-status">
+              <div class="status-indicator" id="componentStatus"></div>
+              <span class="status-text" id="statusText">Очікування</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator Grid -->
+        <div class="calculator-grid">
+          <!-- Tire Calculator -->
+          <div class="calculator-card tire-card">
+            <div class="card-header">
+              <div class="header-icon tire-icon">
+                <i class="fas fa-tire"></i>
+              </div>
+              <div class="header-content">
+                <h3>Калькулятор зносу шин</h3>
+                <p>Перевірте стан ваших шин</p>
+              </div>
+            </div>
+
+            <div class="calculator-content">
+              <div class="method-selector">
+                <h4>Метод перевірки</h4>
+                <div class="method-buttons">
+                  <button class="method-btn active" data-method="thickness" data-type="tire">
+                    <i class="fas fa-ruler"></i>
+                    <span>За товщиною</span>
+                  </button>
+                  <button class="method-btn" data-method="mileage" data-type="tire">
+                    <i class="fas fa-road"></i>
+                    <span>За пробігом</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Thickness Method -->
+              <div class="input-section thickness-section active" id="tire-thickness">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="tireThickness" class="form-label">
+                      <i class="fas fa-ruler-vertical"></i>
+                      Залишкова товщина протектора
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="tireThickness"
+                        step="0.1"
+                        min="0"
+                        max="20"
+                        placeholder="1.6"
+                      />
+                      <span class="input-unit">мм</span>
+                    </div>
+                    <div class="input-hint">Мінімум: 1.6 мм (літні), 4.0 мм (зимові)</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tireType" class="form-label">
+                      <i class="fas fa-snowflake"></i>
+                      Тип шин
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="tireType">
+                        <option value="summer">☀️ Літні шини</option>
+                        <option value="winter">❄️ Зимові шини</option>
+                        <option value="all-season">🌤️ Всесезонні</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tireSize" class="form-label">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                      Розмір шин
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="text"
+                        id="tireSize"
+                        placeholder="205/55 R16"
+                      />
+                      <i class="fas fa-tire input-icon"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tireBrand" class="form-label">
+                      <i class="fas fa-industry"></i>
+                      Виробник шин
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="tireBrand">
+                        <option value="">Оберіть виробника</option>
+                        <option value="michelin">🏆 Michelin</option>
+                        <option value="bridgestone">🏆 Bridgestone</option>
+                        <option value="continental">🏆 Continental</option>
+                        <option value="pirelli">🏆 Pirelli</option>
+                        <option value="goodyear">🏆 Goodyear</option>
+                        <option value="nokian">❄️ Nokian</option>
+                        <option value="dunlop">🚗 Dunlop</option>
+                        <option value="yokohama">🚗 Yokohama</option>
+                        <option value="hankook">🚗 Hankook</option>
+                        <option value="kumho">🚗 Kumho</option>
+                        <option value="toyo">🚗 Toyo</option>
+                        <option value="other">🌍 Інший</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mileage Method -->
+              <div class="input-section mileage-section" id="tire-mileage">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="tireMileage" class="form-label">
+                      <i class="fas fa-road"></i>
+                      Пробіг на поточних шинах
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="tireMileage"
+                        min="0"
+                        placeholder="25000"
+                      />
+                      <span class="input-unit">км</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tireQuality" class="form-label">
+                      <i class="fas fa-star"></i>
+                      Клас якості шин
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="tireQuality">
+                        <option value="premium">⭐⭐⭐ Преміум (80-100 тис. км)</option>
+                        <option value="mid">⭐⭐ Середній (50-80 тис. км)</option>
+                        <option value="budget">⭐ Бюджетний (30-50 тис. км)</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="drivingConditions" class="form-label">
+                      <i class="fas fa-map-marked-alt"></i>
+                      Умови експлуатації
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="drivingConditions">
+                        <option value="highway">🛣️ Переважно траса</option>
+                        <option value="city">🏙️ Місто</option>
+                        <option value="mixed">🔄 Змішані</option>
+                        <option value="aggressive">⚡ Агресивне водіння</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tireAge" class="form-label">
+                      <i class="fas fa-calendar-alt"></i>
+                      Вік шин
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="tireAge"
+                        min="0"
+                        max="15"
+                        placeholder="3"
+                      />
+                      <span class="input-unit">років</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="calculate-btn tire-btn" onclick="calculateTireWear()">
+                <span class="btn-content">
+                  <i class="fas fa-calculator"></i>
+                  <span class="btn-text">Розрахувати знос шин</span>
+                </span>
+                <div class="btn-glow"></div>
+                <div class="btn-ripple"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Brake Calculator -->
+          <div class="calculator-card brake-card">
+            <div class="card-header">
+              <div class="header-icon brake-icon">
+                <i class="fas fa-compact-disc"></i>
+              </div>
+              <div class="header-content">
+                <h3>Калькулятор зносу гальмівних колодок</h3>
+                <p>Перевірте стан гальмівної системи</p>
+              </div>
+            </div>
+
+            <div class="calculator-content">
+              <div class="method-selector">
+                <h4>Метод перевірки</h4>
+                <div class="method-buttons">
+                  <button class="method-btn active" data-method="thickness" data-type="brake">
+                    <i class="fas fa-ruler"></i>
+                    <span>За товщиною</span>
+                  </button>
+                  <button class="method-btn" data-method="mileage" data-type="brake">
+                    <i class="fas fa-road"></i>
+                    <span>За пробігом</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Thickness Method -->
+              <div class="input-section thickness-section active" id="brake-thickness">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="brakeThickness" class="form-label">
+                      <i class="fas fa-ruler-vertical"></i>
+                      Товщина фрикційного матеріалу
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="brakeThickness"
+                        step="0.1"
+                        min="0"
+                        max="20"
+                        placeholder="3.0"
+                      />
+                      <span class="input-unit">мм</span>
+                    </div>
+                    <div class="input-hint">Мінімум: 2.0 мм (заміна обов'язкова)</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="brakeType" class="form-label">
+                      <i class="fas fa-cogs"></i>
+                      Тип колодок
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="brakeType">
+                        <option value="ceramic">🏆 Керамічні</option>
+                        <option value="semi-metallic">🔧 Напівметалічні</option>
+                        <option value="organic">🌿 Органічні</option>
+                        <option value="metallic">⚙️ Металічні</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="brakePosition" class="form-label">
+                      <i class="fas fa-car"></i>
+                      Розташування
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="brakePosition">
+                        <option value="front">🔴 Передні колодки</option>
+                        <option value="rear">🔵 Задні колодки</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="vehicleWeight" class="form-label">
+                      <i class="fas fa-weight-hanging"></i>
+                      Вага автомобіля
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="vehicleWeight">
+                        <option value="light">🚗 Легковий (до 1.5т)</option>
+                        <option value="medium">🚙 Середній (1.5-2.5т)</option>
+                        <option value="heavy">🚛 Важкий (понад 2.5т)</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mileage Method -->
+              <div class="input-section mileage-section" id="brake-mileage">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="brakeMileage" class="form-label">
+                      <i class="fas fa-road"></i>
+                      Пробіг на поточних колодках
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="brakeMileage"
+                        min="0"
+                        placeholder="15000"
+                      />
+                      <span class="input-unit">км</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="brakeQuality" class="form-label">
+                      <i class="fas fa-star"></i>
+                      Якість колодок
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="brakeQuality">
+                        <option value="premium">⭐⭐⭐ Преміум (60-80 тис. км)</option>
+                        <option value="mid">⭐⭐ Середні (40-60 тис. км)</option>
+                        <option value="budget">⭐ Бюджетні (20-40 тис. км)</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="brakingStyle" class="form-label">
+                      <i class="fas fa-hand-paper"></i>
+                      Стиль гальмування
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="brakingStyle">
+                        <option value="smooth">😌 Плавне</option>
+                        <option value="normal">🚗 Звичайне</option>
+                        <option value="aggressive">⚡ Різке</option>
+                        <option value="sport">🏎️ Спортивне</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="terrainType" class="form-label">
+                      <i class="fas fa-mountain"></i>
+                      Тип місцевості
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="terrainType">
+                        <option value="flat">🏞️ Рівнина</option>
+                        <option value="hilly">⛰️ Горбиста</option>
+                        <option value="mountain">🏔️ Гірська</option>
+                      </select>
+                      <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="calculate-btn brake-btn" onclick="calculateBrakeWear()">
+                <span class="btn-content">
+                  <i class="fas fa-calculator"></i>
+                  <span class="btn-text">Розрахувати знос колодок</span>
+                </span>
+                <div class="btn-glow"></div>
+                <div class="btn-ripple"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+          <div class="results-card">
+            <div class="card-header">
+              <div class="header-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <div class="header-content">
+                <h3>Результати аналізу</h3>
+                <p>Детальна інформація про стан компонентів</p>
+              </div>
+            </div>
+
+            <div id="results" class="results-content hidden">
+              <!-- Wear Progress -->
+              <div class="wear-progress">
+                <div class="progress-header">
+                  <h4 id="componentName">Стан компонента</h4>
+                  <span class="progress-percentage" id="wearPercentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-labels">
+                  <span class="label-new">Новий</span>
+                  <span class="label-worn">Зношений</span>
+                </div>
+              </div>
+
+              <!-- Status Cards -->
+              <div class="status-cards">
+                <div class="status-card condition-card">
+                  <div class="status-icon" id="conditionIcon">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div class="status-content">
+                    <h5>Стан</h5>
+                    <p id="conditionText">Відмінний</p>
+                  </div>
+                </div>
+
+                <div class="status-card remaining-card">
+                  <div class="status-icon">
+                    <i class="fas fa-road"></i>
+                  </div>
+                  <div class="status-content">
+                    <h5>Залишок ресурсу</h5>
+                    <p id="remainingText">25,000 км</p>
+                  </div>
+                </div>
+
+                <div class="status-card replacement-card">
+                  <div class="status-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <div class="status-content">
+                    <h5>Заміна через</h5>
+                    <p id="replacementText">6 місяців</p>
+                  </div>
+                </div>
+
+                <div class="status-card cost-card">
+                  <div class="status-icon">
+                    <i class="fas fa-hryvnia-sign"></i>
+                  </div>
+                  <div class="status-content">
+                    <h5>Орієнтовна вартість</h5>
+                    <p id="costText">3,500 ₴</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recommendations -->
+              <div class="recommendations">
+                <h4>
+                  <i class="fas fa-lightbulb"></i>
+                  Рекомендації
+                </h4>
+                <div class="recommendation-list" id="recommendationList">
+                  <!-- Recommendations will be added here -->
+                </div>
+              </div>
+
+              <!-- Safety Warning -->
+              <div class="safety-warning hidden" id="safetyWarning">
+                <div class="warning-icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="warning-content">
+                  <h5>Увага! Небезпечний стан</h5>
+                  <p>Негайно зверніться до сервісу для заміни компонента</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="resultsPlaceholder" class="results-placeholder">
+              <div class="placeholder-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <h4>Очікування розрахунку</h4>
+              <p>
+                Оберіть тип компонента, заповніть дані та натисніть кнопку розрахунку
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+          <div class="info-header">
+            <h3>
+              <i class="fas fa-info-circle"></i>
+              Корисна інформація
+            </h3>
+            <p>Важливі факти про знос шин та гальмівних колодок</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card tire-info">
+              <div class="info-icon">
+                <i class="fas fa-tire"></i>
+              </div>
+              <h4>Шини</h4>
+              <ul>
+                <li>Мінімальна глибина протектора: 1.6 мм (літні), 4.0 мм (зимові)</li>
+                <li>Рекомендована заміна при 3.0 мм для літніх шин</li>
+                <li>Перевіряйте тиск щомісяця</li>
+                <li>Міняйте місцями кожні 10,000 км</li>
+              </ul>
+            </div>
+            <div class="info-card brake-info">
+              <div class="info-icon">
+                <i class="fas fa-compact-disc"></i>
+              </div>
+              <h4>Гальмівні колодки</h4>
+              <ul>
+                <li>Мінімальна товщина: 2.0 мм</li>
+                <li>Рекомендована заміна при 3.0 мм</li>
+                <li>Передні зношуються швидше задніх</li>
+                <li>Міняйте парами (ліва + права)</li>
+              </ul>
+            </div>
+            <div class="info-card safety-info">
+              <div class="info-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h4>Безпека</h4>
+              <ul>
+                <li>Регулярно перевіряйте стан компонентів</li>
+                <li>Не відкладайте заміну при критичному зносі</li>
+                <li>Використовуйте якісні запчастини</li>
+                <li>Довіряйте роботу професіоналам</li>
+              </ul>
+            </div>
+            <div class="info-card maintenance-info">
+              <div class="info-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h4>Обслуговування</h4>
+              <ul>
+                <li>Перевіряйте кожні 10,000 км</li>
+                <li>Ведіть журнал обслуговування</li>
+                <li>Враховуйте умови експлуатації</li>
+                <li>Плануйте заміну заздалегідь</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo-container">
+              <div class="logo-icon">
+                <i class="fas fa-tire"></i>
+              </div>
+              <div class="logo-text">
+                <h3>AutoCare Pro</h3>
+              </div>
+            </div>
+            <p>Професійний калькулятор зносу автомобільних компонентів</p>
+          </div>
+          <div class="footer-info">
+            <p>&copy; 2024 AutoCare Pro. Всі права захищені.</p>
+            <p>Розрахунки базуються на загальних стандартах та рекомендаціях виробників</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./TireWear.js"></script>
+  </body>
+</html>
